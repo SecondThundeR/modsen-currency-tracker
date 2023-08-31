@@ -5,9 +5,17 @@ const config = {
   semi: true,
   printWidth: 80,
   bracketSpacing: true,
-  importOrderSeparation: true,
-  importOrderSortSpecifiers: true,
-  plugins: ["@trivago/prettier-plugin-sort-imports"],
+  importOrder: [
+    "^(react/(.*)$)|^(react$)",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/(.*)$",
+    "",
+    "^[./]",
+  ],
+  importOrderParserPlugins: ["typescript", "jsx"],
+  importOrderTypeScriptVersion: "5.0.0",
+  plugins: ["@ianvs/prettier-plugin-sort-imports"],
 };
 
 module.exports = config;

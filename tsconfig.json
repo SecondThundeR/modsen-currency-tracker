@@ -17,6 +17,9 @@
     "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": true,
     "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    },
     "module": "ES2020",
     "moduleResolution": "Node",
     "target": "ES2020",

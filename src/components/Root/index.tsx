@@ -1,10 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
+import Header from "../Header";
+
 function Root() {
   return (
     <div>
-      <h1>Root!</h1>
+      <Header />
       <Outlet />
     </div>
   );

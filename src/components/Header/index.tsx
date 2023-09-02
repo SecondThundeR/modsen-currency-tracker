@@ -1,29 +1,23 @@
 import React from "react";
-import { Link } from "react-router-dom";
 
 import diagramLogo from "@/assets/diagramLogo.png";
+import Button from "@/components/Button";
+import Icon from "@/components/Icon";
+import NavMenu from "@/components/NavMenu";
+import { NAV_MENU_ITEMS } from "@/constants/navMenuItems";
 
 import styles from "./Header.module.css";
 
 function Header() {
   return (
     <header className={styles["Header"]}>
-      <img width={36} height={36} src={diagramLogo} />
-      <nav className={styles["Navigation"]}>
-        <Link className={styles["Link"]} to="/">
-          Home
-        </Link>
-        <Link className={styles["Link"]} to="/">
-          Timeline
-        </Link>
-        <Link className={styles["Link"]} to="/">
-          Bank map
-        </Link>
-        <Link className={styles["Link"]} to="/">
-          Contact
-        </Link>
-      </nav>
-      <button className={styles["Button"]}>Change theme</button>
+      <Icon width={36} height={36} iconSrc={diagramLogo} />
+      <NavMenu
+        navClass={styles["Navigation"]}
+        linkClass={styles["Link"]}
+        menu={NAV_MENU_ITEMS}
+      />
+      <Button>Change theme</Button>
     </header>
   );
 }

@@ -1,0 +1,38 @@
+.HeroBlock {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 16px;
+  background: linear-gradient(
+    253deg,
+    #121212 11.77%,
+    rgba(36, 121, 64, 0) 91.12%
+  );
+}
+
+.HeroBlock__Company {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.HeroBlock__Company > h1 {
+  background: linear-gradient(
+    90deg,
+    #00ce2c 0.18%,
+    #aedf23 49.3%,
+    #a3dc00 99.88%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 48px;
+}
+
+.HeroBlock__Company > p {
+  color: #d9d9d9;
+  font-size: 18px;
+  font-weight: 300;
+}

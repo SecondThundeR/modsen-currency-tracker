@@ -1,10 +1,10 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import HeroBlock from "@/components/HeroBlock";
-import LastUpdated from "@/components/LastUpdated";
+import Footer from "@/components/ui/Footer";
+import Header from "@/components/ui/Header";
+import HeroBlock from "@/components/ui/HeroBlock";
+import LastUpdated from "@/components/ui/LastUpdated";
 
 function Root() {
   return (

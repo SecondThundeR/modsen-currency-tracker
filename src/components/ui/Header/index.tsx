@@ -1,9 +1,9 @@
 import React from "react";
 
 import diagramLogo from "@/assets/diagramLogo.png";
-import Button from "@/components/Button";
-import Icon from "@/components/Icon";
-import NavMenu from "@/components/NavMenu";
+import Button from "@/components/ui/Button";
+import Icon from "@/components/ui/Icon";
+import NavMenu from "@/components/ui/NavMenu";
 import { NAV_MENU_ITEMS } from "@/constants/navMenuItems";
 
 import styles from "./Header.module.css";

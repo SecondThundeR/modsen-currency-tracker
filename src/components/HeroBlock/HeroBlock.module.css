@@ -36,3 +36,17 @@
   font-size: 18px;
   font-weight: 300;
 }
+
+@media screen and (max-width: 768px) {
+  .HeroBlock > img {
+    display: none;
+  }
+
+  .HeroBlock__Company > h1 {
+    font-size: 32px;
+  }
+
+  .HeroBlock__Company > p {
+    font-size: 16px;
+  }
+}

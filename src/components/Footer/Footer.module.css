@@ -12,6 +12,7 @@
 .Footer__bottomText {
   color: #898989;
   font-size: 16px;
+  text-align: center;
   font-weight: 400;
 }
 
@@ -71,4 +72,16 @@
   color: #898989;
   font-size: 16px;
   font-weight: 400;
+}
+
+@media screen and (max-width: 768px) {
+  .ContentGrid {
+    display: grid;
+    row-gap: 24px;
+    grid-template-columns: none;
+  }
+
+  .Footer {
+    gap: 24px;
+  }
 }

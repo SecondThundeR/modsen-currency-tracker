@@ -1,8 +1,8 @@
 import React, { memo } from "react";
 
 import diagramLogo from "@/assets/diagramLogo.png";
+import Icon from "@/components/Icon";
 
-import Icon from "../Icon";
 import styles from "./Footer.module.css";
 
 const Footer = memo(function Footer() {

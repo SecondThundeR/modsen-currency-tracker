@@ -15,6 +15,7 @@ export async function getAllCurrentRates(
       {
         params: {
           filter_asset_id: filtered_assets,
+          invert: true,
         },
         headers: {
           "X-CoinAPI-Key": process.env.COINAPI_KEY,

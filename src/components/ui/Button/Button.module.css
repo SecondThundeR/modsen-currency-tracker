@@ -1,0 +1,17 @@
+.Button {
+  background-color: #202025;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.Button:hover {
+  background-color: #00bc4f;
+}
+
+.Button:active {
+  transform: scale(0.9);
+}

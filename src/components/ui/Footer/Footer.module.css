@@ -1,0 +1,88 @@
+.Footer {
+  display: flex;
+  flex-direction: column;
+  background-color: #030304;
+  color: white;
+  padding: 32px 96px;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.Footer__bottomText {
+  color: #898989;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 400;
+}
+
+.ContentGrid {
+  display: grid;
+  column-gap: 64px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.CompanyBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.CompanyBlock__Logo {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.CompanyBlock__Name {
+  font-size: 18px;
+  background: linear-gradient(
+    90deg,
+    #00ce2c 0.18%,
+    #aedf23 49.3%,
+    #a3dc00 99.88%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.CompanyBlock__Description {
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.InfoBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.InfoBlock > p {
+  font-size: 18px;
+}
+
+.InfoBlock__Links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.InfoBlock__Links > p {
+  color: #898989;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 768px) {
+  .ContentGrid {
+    display: grid;
+    row-gap: 24px;
+    grid-template-columns: none;
+  }
+
+  .Footer {
+    gap: 24px;
+    padding: 32px 48px;
+  }
+}

@@ -1,6 +1,10 @@
 // @ts-check
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const { DefinePlugin } = require("webpack");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 /** @type { import('webpack').Configuration } */
 module.exports = {
@@ -14,6 +18,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./public/index.html",
     }),
+    new DefinePlugin({
+      "process.env": JSON.stringify(process.env),
+    }),
   ],
   resolve: {
     modules: [__dirname, "src", "node_modules"],
@@ -22,9 +29,11 @@ module.exports = {
       "@/assets": path.resolve(__dirname, "src/assets"),
       "@/components": path.resolve(__dirname, "src/components"),
       "@/constants": path.resolve(__dirname, "src/constants"),
-      "@/pages": path.resolve(__dirname, "src/pages"),
+      "@/features": path.resolve(__dirname, "src/features"),
+      "@/hooks": path.resolve(__dirname, "src/hooks"),
       "@/routes": path.resolve(__dirname, "src/routes"),
       "@/store": path.resolve(__dirname, "src/store"),
+      "@/types": path.resolve(__dirname, "src/types"),
       "@/utils": path.resolve(__dirname, "src/utils"),
     },
   },
@@ -41,9 +50,8 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
-        exclude: /node_modules/,
-        use: ["file-loader"],
+        test: /\.(png|jpg)$/i,
+        type: "asset/resource",
       },
     ],
   },

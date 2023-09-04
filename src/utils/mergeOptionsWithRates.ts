@@ -9,7 +9,7 @@ export function mergeOptionsWithRates(
     const rateData = ratesData?.rates.find(
       (rate) => rate.asset_id_quote === option.id,
     );
-    if (!rateData) return option;
+    if (!rateData) return { ...option, rate_base: ratesData?.asset_id_base };
 
     const { rate } = rateData;
 

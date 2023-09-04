@@ -1,6 +1,10 @@
 // @ts-check
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
+const { DefinePlugin } = require("webpack");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 /** @type { import('webpack').Configuration } */
 module.exports = {
@@ -13,6 +17,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "./public/index.html",
+    }),
+    new DefinePlugin({
+      "process.env": JSON.stringify(process.env),
     }),
   ],
   resolve: {

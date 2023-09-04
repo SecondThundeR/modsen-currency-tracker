@@ -1,51 +1,34 @@
-import React from "react";
+import React, { useMemo } from "react";
 
-import bovespaIcon from "@/assets/Bovespa.png";
-import ifixIcon from "@/assets/IFIX.png";
-import pesoIcon from "@/assets/Peso.png";
-import usdIcon from "@/assets/USD.png";
 import CurrencyGrid from "@/components/ui/CurrencyGrid";
+import Loader from "@/components/ui/Loader";
+import PlaceholderHero from "@/components/ui/PlaceholderHero";
+import { PLACEHOLDER_STOCKS_DATA } from "@/constants/placeholderStocks";
+import useRates from "@/hooks/useRates";
+import { mergeOptionsWithRates } from "@/utils/mergeOptionsWithRates";
 
 import styles from "./Home.module.css";
 
-const PLACEHOLDER_DATA = {
-  stocks: [
-    {
-      name: "Bovespa Index",
-      details: "0.15%",
-      iconSrc: bovespaIcon,
-    },
-    {
-      name: "IFIX",
-      details: "0.15%",
-      iconSrc: ifixIcon,
-    },
-  ],
-  quotes: [
-    {
-      name: "Commercial Dollar",
-      details: "R$ 5,13",
-      iconSrc: usdIcon,
-    },
-    {
-      name: "Argentine Peso",
-      details: "R$ 0,02",
-      iconSrc: pesoIcon,
-    },
-  ],
-};
-
 function Home() {
+  const rates = useRates("USD");
+  const sectionData = useMemo(
+    () => mergeOptionsWithRates(rates.currentRates),
+    [rates.currentRates],
+  );
+
+  if (rates.isFetching) return <Loader />;
+
+  if (rates.isError) return <PlaceholderHero text="No data!" />;
+
+  console.log(rates.currentRates);
+
   return (
     <div className={styles["Home"]}>
       <CurrencyGrid
         sectionTitle="Stocks"
-        sectionInfo={PLACEHOLDER_DATA.stocks}
+        sectionInfo={PLACEHOLDER_STOCKS_DATA}
       />
-      <CurrencyGrid
-        sectionTitle="Quotes"
-        sectionInfo={PLACEHOLDER_DATA.quotes}
-      />
+      <CurrencyGrid sectionTitle="Quotes" sectionInfo={sectionData} />
     </div>
   );
 }

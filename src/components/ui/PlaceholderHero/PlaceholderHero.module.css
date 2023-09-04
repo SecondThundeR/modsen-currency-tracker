@@ -1,0 +1,10 @@
+.PlaceholderHero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 96px 16px;
+}
+
+.PlaceholderHero > h1 {
+  font-size: 36px;
+}

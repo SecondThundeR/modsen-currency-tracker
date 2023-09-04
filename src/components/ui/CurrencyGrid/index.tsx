@@ -1,15 +1,14 @@
 import React, { memo } from "react";
 
-import CurrencyButton, {
-  CurrencyButtonProps,
-} from "@/components/ui/CurrencyButton";
+import CurrencyButton from "@/components/ui/CurrencyButton";
 import SectionHeader from "@/components/ui/SectionHeader";
+import { CurrencyType } from "@/types/currency";
 
 import styles from "./CurrencyGrid.module.css";
 
 interface CurrencyGridProps {
   sectionTitle: string;
-  sectionInfo: CurrencyButtonProps[];
+  sectionInfo: CurrencyType[];
 }
 
 const CurrencyGrid = memo(function CurrencyGrid({
@@ -21,10 +20,7 @@ const CurrencyGrid = memo(function CurrencyGrid({
       <SectionHeader title={sectionTitle} />
       <div className={styles["CurrencyGrid__Buttons"]}>
         {sectionInfo.map((info) => (
-          <CurrencyButton
-            key={info.name.toLowerCase().split(" ").join("-")}
-            {...info}
-          />
+          <CurrencyButton key={info.id} {...info} />
         ))}
       </div>
     </div>

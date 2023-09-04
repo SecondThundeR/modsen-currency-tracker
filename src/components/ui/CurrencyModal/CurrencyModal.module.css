@@ -1,0 +1,6 @@
+.CurrencyModal {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-radius: 16px;
+}

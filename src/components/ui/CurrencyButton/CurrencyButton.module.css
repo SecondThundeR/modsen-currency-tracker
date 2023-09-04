@@ -6,6 +6,16 @@
   border: 1px solid #474747;
   padding: 24px;
   border-radius: 8px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.CurrencyButton:hover {
+  background-color: #2d2d32;
+}
+
+.CurrencyButton:active {
+  transform: scale(0.98);
 }
 
 .CurrencyButton__Info {

@@ -5,17 +5,21 @@ import { RateArray } from "@/types/coinapi";
 
 export async function getAllCurrentRates(
   base_asset: string,
-  filter_rates?: string[],
+  options: {
+    filterRates?: string[];
+    isInverted?: boolean;
+  },
 ) {
   try {
-    const filtered_assets =
-      filter_rates !== undefined ? filter_rates.join(";") : undefined;
+    const { filterRates, isInverted } = options;
+    const filteredAssets =
+      filterRates !== undefined ? filterRates.join(";") : undefined;
     const response = await axios.get<RateArray>(
       `${COIN_API_EXCHANGE_RATE_URL}${base_asset}`,
       {
         params: {
-          filter_asset_id: filtered_assets,
-          invert: true,
+          filter_asset_id: filteredAssets,
+          invert: isInverted ?? true,
         },
         headers: {
           "X-CoinAPI-Key": process.env.COINAPI_KEY,

@@ -1,6 +1,7 @@
 import React, { ButtonHTMLAttributes, memo } from "react";
 
 import Button from "@/components/ui/Button";
+import CurrencyButtonInfo from "@/components/ui/CurrencyButtonInfo";
 import Icon from "@/components/ui/Icon";
 import { CurrencyType } from "@/types/currency";
 
@@ -11,22 +12,14 @@ interface CurrencyButtonProps
     CurrencyType {}
 
 const CurrencyButton = memo(function CurrencyButton({
-  iconSrc,
-  name,
-  details,
-  rate,
-  rate_base,
   onClick,
+  iconSrc,
+  ...currencyInfo
 }: CurrencyButtonProps) {
   return (
     <Button className={styles["CurrencyButton"]} onClick={onClick}>
       <Icon width={64} height={64} iconSrc={iconSrc} />
-      <div className={styles["CurrencyButton__Info"]}>
-        <h1>{name}</h1>
-        {details && <p>{details}</p>}
-        {rate && <p>{`${rate.toFixed(6)} ${rate_base}`}</p>}
-        {!details && !rate && <p>No conversion details to {rate_base}</p>}
-      </div>
+      <CurrencyButtonInfo {...currencyInfo} />
     </Button>
   );
 });

@@ -1,9 +1,21 @@
-import React, { PropsWithChildren } from "react";
+import React, { ButtonHTMLAttributes, memo, PropsWithChildren } from "react";
 
 import styles from "./Button.module.css";
 
-const Button = function Button({ children }: PropsWithChildren) {
-  return <button className={styles["Button"]}>{children}</button>;
-};
+interface ButtonProps
+  extends PropsWithChildren,
+    Pick<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "onClick"> {}
+
+const Button = memo(function Button({
+  children,
+  className,
+  onClick,
+}: ButtonProps) {
+  return (
+    <button className={className ?? styles["Button"]} onClick={onClick}>
+      {children}
+    </button>
+  );
+});
 
 export default Button;

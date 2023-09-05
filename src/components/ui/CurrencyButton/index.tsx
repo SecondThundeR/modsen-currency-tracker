@@ -1,5 +1,6 @@
 import React, { ButtonHTMLAttributes, memo } from "react";
 
+import Button from "@/components/ui/Button";
 import Icon from "@/components/ui/Icon";
 import { CurrencyType } from "@/types/currency";
 
@@ -18,7 +19,7 @@ const CurrencyButton = memo(function CurrencyButton({
   onClick,
 }: CurrencyButtonProps) {
   return (
-    <button className={styles["CurrencyButton"]} onClick={onClick}>
+    <Button className={styles["CurrencyButton"]} onClick={onClick}>
       <Icon width={64} height={64} iconSrc={iconSrc} />
       <div className={styles["CurrencyButton__Info"]}>
         <h1>{name}</h1>
@@ -26,7 +27,7 @@ const CurrencyButton = memo(function CurrencyButton({
         {rate && <p>{`${rate.toFixed(6)} ${rate_base}`}</p>}
         {!details && !rate && <p>No conversion details to {rate_base}</p>}
       </div>
-    </button>
+    </Button>
   );
 });
 

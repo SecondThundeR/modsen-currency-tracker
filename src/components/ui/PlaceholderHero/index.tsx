@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import styles from "./PlaceholderHero.module.css";
 
@@ -6,7 +6,7 @@ interface PlaceholderHeroProps {
   text: string;
 }
 
-const PlaceholderHero = React.memo(function PlaceholderHero({
+const PlaceholderHero = memo(function PlaceholderHero({
   text,
 }: PlaceholderHeroProps) {
   return (

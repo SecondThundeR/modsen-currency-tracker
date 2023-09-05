@@ -8,7 +8,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitAny": true,
-    "noImplicitReturns": true,
     "alwaysStrict": true,
     "strictBindCallApply": true,
     "strictFunctionTypes": true,

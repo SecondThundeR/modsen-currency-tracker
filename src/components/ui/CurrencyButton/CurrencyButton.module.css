@@ -17,24 +17,3 @@
 .CurrencyButton:active {
   transform: scale(0.98);
 }
-
-.CurrencyButton__Info {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 2px;
-}
-
-.CurrencyButton__Info > h1 {
-  font-size: 24px;
-  color: white;
-  font-weight: 400;
-  text-align: start;
-}
-
-.CurrencyButton__Info > p {
-  color: #a7b2c3;
-  font-size: 20px;
-  font-weight: 300;
-}

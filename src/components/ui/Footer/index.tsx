@@ -1,11 +1,11 @@
-import React, { memo } from "react";
+import React from "react";
 
 import diagramLogo from "@/assets/diagramLogo.png";
 import Icon from "@/components/ui/Icon";
 
 import styles from "./Footer.module.css";
 
-const Footer = memo(function Footer() {
+function Footer() {
   return (
     <footer className={styles["Footer"]}>
       <div className={styles["ContentGrid"]}>
@@ -50,6 +50,6 @@ const Footer = memo(function Footer() {
       </p>
     </footer>
   );
-});
+}
 
 export default Footer;

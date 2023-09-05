@@ -71,6 +71,7 @@ const CurrencyModal = memo(function CurrencyModal({
                 <p>Target currency:</p>
                 <SelectInput
                   value={selectedCurrency}
+                  optionsHeaderText="Select currency"
                   onChange={onSetCurrency}
                   options={conversionOptions}
                 />

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { FILTER_RATES } from "@/constants/filterRates";
@@ -9,19 +9,22 @@ import { fetchingRates, ratesFetchError, updateRates } from "@/store/currency";
 function useRates(base_asset: string) {
   const rates = useSelector((state: RootState) => state.currency);
   const dispatch = useDispatch();
+
   const isDataExists = rates.currentRates !== null;
+
+  const fetchRates = useCallback(async () => {
+    dispatch(fetchingRates());
+    const res = await getAllCurrentRates(base_asset, {
+      filterRates: FILTER_RATES,
+    });
+    if (!res) return dispatch(ratesFetchError());
+    dispatch(updateRates(res));
+  }, [base_asset, dispatch]);
 
   useEffect(() => {
     if (isDataExists) return;
-    dispatch(fetchingRates());
-    getAllCurrentRates(base_asset, { filterRates: FILTER_RATES })
-      .then((res) => {
-        if (!res) {
-          dispatch(ratesFetchError());
-        } else dispatch(updateRates(res));
-      })
-      .catch(console.error);
-  }, [base_asset, dispatch, isDataExists]);
+    fetchRates().catch(console.error);
+  }, [fetchRates, isDataExists]);
 
   return rates;
 }

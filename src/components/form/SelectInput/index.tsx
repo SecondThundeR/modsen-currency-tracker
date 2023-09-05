@@ -5,10 +5,12 @@ import styles from "./SelectInput.module.css";
 interface SelectInputProps
   extends Pick<SelectHTMLAttributes<HTMLSelectElement>, "value" | "onChange"> {
   options: string[];
+  optionsHeaderText: string;
 }
 
 const SelectInput = memo(function SelectInput({
   options,
+  optionsHeaderText,
   value,
   onChange,
 }: SelectInputProps) {
@@ -20,7 +22,7 @@ const SelectInput = memo(function SelectInput({
       onChange={onChange}
     >
       <option value="" disabled>
-        Select currency
+        {optionsHeaderText}
       </option>
       {options.map((optionData) => (
         <option key={optionData} value={optionData}>

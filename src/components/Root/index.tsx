@@ -14,13 +14,13 @@ function Root() {
   );
 
   return (
-    <div>
+    <>
       <Header />
       <HeroBlock />
       {lastUpdatedAt && <LastUpdated updateTime={lastUpdatedAt} />}
       <Outlet />
       <Footer />
-    </div>
+    </>
   );
 }
 

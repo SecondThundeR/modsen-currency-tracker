@@ -1,11 +1,11 @@
-import React, { memo } from "react";
+import React from "react";
 
 import diagramLogo from "@/assets/diagramLogo.png";
 import Icon from "@/components/ui/Icon";
 
 import styles from "./HeroBlock.module.css";
 
-const HeroBlock = memo(function HeroBlock() {
+function HeroBlock() {
   return (
     <div className={styles["HeroBlock"]}>
       <div className={styles["HeroBlock__Company"]}>
@@ -15,6 +15,6 @@ const HeroBlock = memo(function HeroBlock() {
       <Icon width={184} height={184} iconSrc={diagramLogo} />
     </div>
   );
-});
+}
 
 export default HeroBlock;

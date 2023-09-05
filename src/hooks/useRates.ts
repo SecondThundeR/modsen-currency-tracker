@@ -14,7 +14,7 @@ function useRates(base_asset: string) {
   useEffect(() => {
     if (isDataExists) return;
     dispatch(fetchingRates());
-    getAllCurrentRates(base_asset, FILTER_RATES)
+    getAllCurrentRates(base_asset, { filterRates: FILTER_RATES })
       .then((res) => {
         if (!res) {
           dispatch(ratesFetchError());

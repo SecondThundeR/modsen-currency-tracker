@@ -12,6 +12,7 @@ module.exports = {
   output: {
     filename: "bundle.[fullhash].js",
     path: path.resolve(__dirname, "dist"),
+    publicPath: "/",
     clean: true,
   },
   plugins: [

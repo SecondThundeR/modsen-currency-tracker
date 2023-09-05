@@ -1,23 +1,21 @@
-import React, { Component, ErrorInfo, ReactNode } from "react";
+import React, { Component, ErrorInfo, PropsWithChildren } from "react";
 
 import styles from "./ErrorBoundary.module.css";
 
-interface Props {
-  children?: ReactNode;
-}
+interface ErrorBoundaryProps extends PropsWithChildren {}
 
-interface State {
+interface ErrorBoundaryState {
   errorDetails: string | undefined;
   hasError: boolean;
 }
 
-class ErrorBoundary extends Component<Props, State> {
-  public state: State = {
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+  public state: ErrorBoundaryState = {
     errorDetails: undefined,
     hasError: false,
   };
 
-  public static getDerivedStateFromError(error: Error): State {
+  public static getDerivedStateFromError(error: Error): ErrorBoundaryState {
     return { hasError: true, errorDetails: error.message };
   }
 

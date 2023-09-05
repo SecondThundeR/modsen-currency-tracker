@@ -1,6 +1,7 @@
 import React, { useMemo } from "react";
 
 import CurrencyGrid from "@/components/ui/CurrencyGrid";
+import CurrencyModal from "@/components/ui/CurrencyModal";
 import Loader from "@/components/ui/Loader";
 import PlaceholderHero from "@/components/ui/PlaceholderHero";
 import { PLACEHOLDER_STOCKS_DATA } from "@/constants/placeholderStocks";
@@ -8,8 +9,9 @@ import useCurrencyModal from "@/hooks/useCurrencyModal";
 import useRates from "@/hooks/useRates";
 import { mergeOptionsWithRates } from "@/utils/mergeOptionsWithRates";
 
-import CurrencyModal from "../ui/CurrencyModal";
 import styles from "./Home.module.css";
+
+const DEFAULT_RATE_ASSET_ID = "USD";
 
 function Home() {
   const {
@@ -17,7 +19,7 @@ function Home() {
     selectedId,
     handlers: { onOpen, onClose },
   } = useCurrencyModal();
-  const rates = useRates("USD");
+  const rates = useRates(DEFAULT_RATE_ASSET_ID);
   const sectionData = useMemo(
     () => mergeOptionsWithRates(rates.currentRates),
     [rates.currentRates],

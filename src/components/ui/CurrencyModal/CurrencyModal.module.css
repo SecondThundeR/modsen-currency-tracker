@@ -1,0 +1,68 @@
+.CurrencyModal {
+  width: clamp(50%, 700px, 90%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 24px;
+  border-radius: 16px;
+  gap: 16px;
+  background-color: #202025;
+  margin: auto;
+}
+
+.CurrencyModal__CurrencyInfo {
+  display: flex;
+  gap: 16px;
+}
+
+.CurrencyModal__CurrencyInfoDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.CurrencyModal__CurrencyInfoDetails > p {
+  opacity: 0.7;
+}
+
+.CurrencyModal__CurrencyInfoDetails > h1 {
+  font-size: 24px;
+}
+
+.CurrencyModal__CurrencySelect {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.CurrencyModal__CurrencySelect > p {
+  font-size: 16px;
+}
+
+.CurrencyModal__CurrencyResult {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.CurrencyModal__CurrencyAmount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.CurrencyModal__CurrencyResult > h1 {
+  font-size: 20px;
+}
+
+.CurrencyModal__CurrencyFooter {
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+}
+
+.CurrencyModal__CurrencyFooter > p {
+  font-size: 16px;
+  opacity: 0.7;
+}

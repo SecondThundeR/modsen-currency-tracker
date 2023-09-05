@@ -5,13 +5,13 @@ import { RateArray } from "@/types/coinapi";
 
 export async function getAllCurrentRates(
   base_asset: string,
-  options: {
+  options?: {
     filterRates?: string[];
     isInverted?: boolean;
   },
 ) {
   try {
-    const { filterRates, isInverted } = options;
+    const { filterRates, isInverted } = options ?? {};
     const filteredAssets =
       filterRates !== undefined ? filterRates.join(";") : undefined;
     const response = await axios.get<RateArray>(
@@ -29,6 +29,5 @@ export async function getAllCurrentRates(
     return response.data;
   } catch (error: unknown) {
     console.error(error);
-    return;
   }
 }

@@ -1,10 +1,26 @@
 .Header {
   background-color: #030304;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  padding-top: 18px;
-  padding-bottom: 18px;
+  padding: 18px 64px;
+}
+
+.Header__Burger {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.Header__BurgerWrapper {
+  display: none;
+}
+
+.Header__Content {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: 0.2s;
 }
 
 .Navigation {
@@ -28,6 +44,27 @@
   .Header {
     flex-direction: column;
     gap: 12px;
+    padding: 18px 36px;
+  }
+
+  .Header__Burger {
+    width: 100%;
+    flex: 1;
+  }
+
+  .Header__Content {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .Header__Content--visible {
+    display: flex;
+  }
+
+  .Header__BurgerWrapper {
+    display: flex;
   }
 
   .Navigation {

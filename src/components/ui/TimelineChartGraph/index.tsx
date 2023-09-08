@@ -6,6 +6,8 @@ import Chart from "react-apexcharts";
 import { RateHistory } from "@/types/coinapi";
 import { extractChartData } from "@/utils/extractChartData";
 
+import styles from "./TimelineChartGraph.module.css";
+
 const CHART_OPTIONS = {
   chart: {
     background: "#000000",
@@ -79,8 +81,14 @@ class TimelineChartGraph extends React.Component<
     const { data, limit } = this.props;
     const { options } = this.state;
 
-    const seriesData = extractChartData(data, limit);
+    if (data.length === 0)
+      return (
+        <div className={styles["TimelineChartGraph__NoData"]}>
+          <h1>No available data :c</h1>
+        </div>
+      );
 
+    const seriesData = extractChartData(data, limit);
     const series = [
       {
         name: "candle",

@@ -2,10 +2,15 @@ import React, { ChangeEventHandler } from "react";
 
 import CurrencySelectInput from "@/components/form/CurrencySelectInput";
 import NumberInput from "@/components/form/NumberInput";
+import Loader from "@/components/ui/Loader";
+import TimelineChartGraph from "@/components/ui/TimelineChartGraph";
 import TimelineCurrencyInfo from "@/components/ui/TimelineCurrencyInfo";
 import Toast from "@/components/ui/Toast";
 import { CURRENCY_OPTIONS } from "@/constants/currencyOptions";
+import { DEFAULT_RATE_ASSET_ID } from "@/constants/defaultRateAssetID";
+import { getRatesHistory } from "@/features/coinapi/getRatesHistory";
 import { rangeNumberObservable } from "@/lib/observable";
+import { RateHistory } from "@/types/coinapi";
 
 import styles from "./Timeline.module.css";
 
@@ -15,6 +20,7 @@ interface TimelineState {
   isToastOpen: boolean;
   selectedDays: number;
   selectedCurrencyId: string | undefined;
+  currentHistoryRate: RateHistory[] | undefined;
 }
 
 const DEFAULT_DAYS_NUMBER = 14;
@@ -26,6 +32,7 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
       isToastOpen: false,
       selectedDays: DEFAULT_DAYS_NUMBER,
       selectedCurrencyId: undefined,
+      currentHistoryRate: undefined,
     };
   }
 
@@ -44,8 +51,28 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
     rangeNumberObservable.notify(newRangeDays);
   };
 
+  updateHistoryRate = async () => {
+    if (!this.state.selectedCurrencyId) return;
+    this.setState({ currentHistoryRate: undefined });
+    const res = await getRatesHistory(
+      this.state.selectedCurrencyId,
+      DEFAULT_RATE_ASSET_ID,
+    );
+    if (!res) return;
+    this.setState({ currentHistoryRate: res });
+  };
+
   componentDidMount() {
     rangeNumberObservable.subscribe(this.controlToast);
+  }
+
+  componentDidUpdate(
+    _prevProps: Readonly<TimelineProps>,
+    prevState: Readonly<TimelineState>,
+  ) {
+    if (prevState.selectedCurrencyId !== this.state.selectedCurrencyId) {
+      this.updateHistoryRate().catch(console.error);
+    }
   }
 
   componentWillUnmount() {
@@ -53,7 +80,12 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
   }
 
   render() {
-    const { isToastOpen, selectedCurrencyId, selectedDays } = this.state;
+    const {
+      isToastOpen,
+      selectedCurrencyId,
+      selectedDays,
+      currentHistoryRate,
+    } = this.state;
     return (
       <div className={styles["Timeline"]}>
         <CurrencySelectInput
@@ -74,8 +106,17 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
               <NumberInput
                 value={selectedDays}
                 onChange={this.updateSelectedDays}
+                max={31}
               />
             </div>
+            {currentHistoryRate === undefined ? (
+              <Loader />
+            ) : (
+              <TimelineChartGraph
+                data={currentHistoryRate}
+                limit={selectedDays}
+              />
+            )}
           </div>
         )}
         <Toast isOpen={isToastOpen}>

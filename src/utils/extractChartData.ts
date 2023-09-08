@@ -1,6 +1,6 @@
 import { RateHistory } from "@/types/coinapi";
 
-export function extractChartData(data: RateHistory[]) {
+export function extractChartData(data: RateHistory[], limit?: number) {
   return data
     .map((item) => {
       const { time_period_start, rate_open, rate_high, rate_low, rate_close } =
@@ -15,5 +15,6 @@ export function extractChartData(data: RateHistory[]) {
         ],
       };
     })
+    .slice(0, limit)
     .reverse();
 }

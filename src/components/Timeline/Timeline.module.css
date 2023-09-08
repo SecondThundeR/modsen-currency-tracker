@@ -1,0 +1,32 @@
+.Timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-top: 24px;
+  padding-left: 96px;
+  padding-right: 96px;
+  padding-bottom: 32px;
+}
+
+.Timeline__Info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.Timeline__DaysRange {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.Timeline__DaysRange > h1 {
+  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .Timeline {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

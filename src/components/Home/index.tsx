@@ -4,14 +4,13 @@ import CurrencyGrid from "@/components/ui/CurrencyGrid";
 import CurrencyModal from "@/components/ui/CurrencyModal";
 import Loader from "@/components/ui/Loader";
 import PlaceholderHero from "@/components/ui/PlaceholderHero";
+import { DEFAULT_RATE_ASSET_ID } from "@/constants/defaultRateAssetID";
 import { PLACEHOLDER_STOCKS_DATA } from "@/constants/placeholderStocks";
 import useCurrencyModal from "@/hooks/useCurrencyModal";
 import useRates from "@/hooks/useRates";
 import { mergeOptionsWithRates } from "@/utils/mergeOptionsWithRates";
 
 import styles from "./Home.module.css";
-
-const DEFAULT_RATE_ASSET_ID = "USD";
 
 function Home() {
   const {

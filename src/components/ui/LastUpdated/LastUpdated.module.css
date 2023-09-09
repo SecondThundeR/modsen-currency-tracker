@@ -16,7 +16,7 @@
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  background-color: #00bc4f;
+  background-color: var(--accent);
   animation: pulse-animation 2s infinite;
 }
 

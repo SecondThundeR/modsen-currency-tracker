@@ -2,84 +2,40 @@ import React from "react";
 import { ApexOptions } from "apexcharts";
 import dayjs from "dayjs";
 import Chart from "react-apexcharts";
+import { connect } from "react-redux";
 
+import { RootState } from "@/store";
+import { ThemeState } from "@/store/theme";
 import { RateHistory } from "@/types/coinapi";
 import { extractChartData } from "@/utils/extractChartData";
 
 import styles from "./TimelineChartGraph.module.css";
 
-const CHART_OPTIONS = {
-  chart: {
-    background: "#000000",
-    type: "candlestick",
-    toolbar: {
-      show: false,
-    },
-    zoom: {
-      enabled: false,
-    },
+const CHART_COLORS = {
+  light: {
+    background: "#fff",
+    theme: "light",
+    borderColor: "#e5e5e5",
   },
-  theme: {
-    mode: "dark",
+  dark: {
+    background: "#000",
+    theme: "dark",
+    borderColor: "#1c1c1d",
   },
-  tooltip: {
-    enabled: true,
-  },
-  grid: {
-    show: true,
-    borderColor: "#1C1C1D",
-    xaxis: {
-      lines: {
-        show: true,
-      },
-    },
-    yaxis: {
-      lines: {
-        show: true,
-      },
-    },
-  },
-  xaxis: {
-    type: "category",
-    labels: {
-      formatter: function (val) {
-        return dayjs(val).format("MMM DD HH:mm");
-      },
-    },
-  },
-  yaxis: {
-    tooltip: {
-      enabled: true,
-    },
-    crosshairs: {
-      show: true,
-    },
-  },
-} satisfies ApexOptions;
+} as const;
 
-interface TimelineChartGraphProps {
+interface TimelineChartGraphProps extends ThemeState {
   data: RateHistory[];
   limit: number;
 }
 
-interface TimelineChartGraphState {
-  options: ApexOptions;
-}
-
-class TimelineChartGraph extends React.Component<
-  TimelineChartGraphProps,
-  TimelineChartGraphState
-> {
+class TimelineChartGraph extends React.Component<TimelineChartGraphProps> {
   constructor(props: TimelineChartGraphProps) {
     super(props);
-    this.state = {
-      options: CHART_OPTIONS,
-    };
   }
 
   render() {
-    const { data, limit } = this.props;
-    const { options } = this.state;
+    const { data, limit, currentTheme } = this.props;
 
     if (data.length === 0)
       return (
@@ -96,15 +52,67 @@ class TimelineChartGraph extends React.Component<
       },
     ] satisfies ApexAxisChartSeries;
 
+    const currentChartColors = CHART_COLORS[currentTheme];
+    const chartOptions = {
+      chart: {
+        background: currentChartColors.background,
+        type: "candlestick",
+        toolbar: {
+          show: false,
+        },
+        zoom: {
+          enabled: false,
+        },
+      },
+      theme: {
+        mode: currentChartColors.theme,
+      },
+      tooltip: {
+        enabled: true,
+      },
+      grid: {
+        show: true,
+        borderColor: currentChartColors.borderColor,
+        xaxis: {
+          lines: {
+            show: true,
+          },
+        },
+        yaxis: {
+          lines: {
+            show: true,
+          },
+        },
+      },
+      xaxis: {
+        type: "category",
+        labels: {
+          formatter: (value) => dayjs(value).format("MMM DD HH:mm"),
+        },
+      },
+      yaxis: {
+        tooltip: {
+          enabled: true,
+        },
+        crosshairs: {
+          show: true,
+        },
+      },
+    } satisfies ApexOptions;
+
     return (
       <Chart
         type="candlestick"
         series={series}
-        options={options}
+        options={chartOptions}
         height={450}
       />
     );
   }
 }
 
-export default TimelineChartGraph;
+const mapStateToProps = (state: RootState) => ({
+  currentTheme: state.theme.currentTheme,
+});
+
+export default connect(mapStateToProps)(TimelineChartGraph);

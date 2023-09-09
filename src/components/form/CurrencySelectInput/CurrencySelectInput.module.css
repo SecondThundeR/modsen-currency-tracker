@@ -1,6 +1,6 @@
 .CurrencySelectInput {
   border-radius: 8px;
   padding: 6px 8px;
-  color: white;
-  background-color: #030304;
+  color: var(--text-primary);
+  background-color: var(--background-primary);
 }

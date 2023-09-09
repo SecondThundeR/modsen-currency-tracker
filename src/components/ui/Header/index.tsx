@@ -8,11 +8,13 @@ import Icon from "@/components/ui/Icon";
 import NavMenu from "@/components/ui/NavMenu";
 import { NAV_MENU_ITEMS } from "@/constants/navMenuItems";
 import useBooleanToggle from "@/hooks/useBooleanToggle";
+import useThemeChange from "@/hooks/useThemeChange";
 
 import styles from "./Header.module.css";
 
 function Header() {
   const [isOpen, toggleIsOpen] = useBooleanToggle();
+  const onThemeChange = useThemeChange();
 
   return (
     <header className={styles["Header"]}>
@@ -32,7 +34,7 @@ function Header() {
           linkClass={styles["Link"]}
           menu={NAV_MENU_ITEMS}
         />
-        <Button>Change theme</Button>
+        <Button onClick={onThemeChange}>Change theme</Button>
       </div>
     </header>
   );

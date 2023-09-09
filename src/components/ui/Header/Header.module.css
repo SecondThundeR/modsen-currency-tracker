@@ -1,5 +1,4 @@
 .Header {
-  background-color: #030304;
   display: flex;
   align-items: center;
   padding: 18px 64px;
@@ -30,14 +29,14 @@
 }
 
 .Link {
-  color: white;
   text-decoration: none;
   font-weight: 300;
   transition: 0.3s;
+  color: var(--text-primary);
 }
 
 .Link:hover {
-  color: #00bc4f;
+  color: var(--accent);
 }
 
 @media screen and (max-width: 768px) {

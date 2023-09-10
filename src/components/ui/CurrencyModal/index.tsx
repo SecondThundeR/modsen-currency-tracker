@@ -1,6 +1,6 @@
 import React, { ChangeEvent, memo, useCallback, useState } from "react";
 
-import NumberInput from "@/components/form/NumberInput";
+import Input from "@/components/form/Input";
 import SelectInput from "@/components/form/SelectInput";
 import Backdrop from "@/components/ui/Backdrop";
 import Icon from "@/components/ui/Icon";
@@ -84,7 +84,11 @@ const CurrencyModal = memo(function CurrencyModal({
           <div className={styles["CurrencyModal__CurrencyResult"]}>
             <div className={styles["CurrencyModal__CurrencyAmount"]}>
               <p>Select amount of currency:</p>
-              <NumberInput value={selectedAmount} onChange={onSetAmount} />
+              <Input
+                type="number"
+                value={selectedAmount}
+                onChange={onSetAmount}
+              />
             </div>
             <h1>
               {selectedAmount} {name} is{" "}

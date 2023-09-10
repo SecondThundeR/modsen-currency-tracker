@@ -1,0 +1,14 @@
+.Alert {
+  display: flex;
+  padding: 16px;
+  border-radius: 16px;
+  color: var(--text-alert);
+}
+
+.Alert__Error {
+  background-color: var(--background-error);
+}
+
+.Alert__Success {
+  background-color: var(--background-success);
+}

@@ -4,15 +4,18 @@ import styles from "./Button.module.css";
 
 interface ButtonProps
   extends PropsWithChildren,
-    Pick<ButtonHTMLAttributes<HTMLButtonElement>, "className" | "onClick"> {}
+    Pick<
+      ButtonHTMLAttributes<HTMLButtonElement>,
+      "className" | "onClick" | "type" | "disabled"
+    > {}
 
 const Button = memo(function Button({
   children,
   className,
-  onClick,
+  ...props
 }: ButtonProps) {
   return (
-    <button className={className ?? styles["Button"]} onClick={onClick}>
+    <button className={className ?? styles["Button"]} {...props}>
       {children}
     </button>
   );

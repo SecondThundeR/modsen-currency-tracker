@@ -19,8 +19,11 @@ body {
   );
   --background-backdrop: rgba(0, 0, 0, 0.8);
   --background-secondary: #202025;
+  --background-error: #cd1818;
+  --background-success: #1e5128;
   --background-hover: #2d2d32;
   --text-primary: white;
+  --text-alert: white;
   --text-secondary: grey;
   --border-color: #474747;
   --accent: #00bc4f;
@@ -31,8 +34,11 @@ body {
   --background-hero: white;
   --background-backdrop: rgba(0, 0, 0, 0.8);
   --background-secondary: #d8d8d8;
+  --background-error: #c70039;
+  --background-success: #7aa874;
   --background-hover: white;
   --text-primary: black;
+  --text-alert: white;
   --text-secondary: grey;
   --border-color: #767575;
   --accent: #00bc4f;

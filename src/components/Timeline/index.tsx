@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler } from "react";
 
 import CurrencySelectInput from "@/components/form/CurrencySelectInput";
-import NumberInput from "@/components/form/NumberInput";
+import Input from "@/components/form/Input";
 import Loader from "@/components/ui/Loader";
 import TimelineChartGraph from "@/components/ui/TimelineChartGraph";
 import TimelineCurrencyInfo from "@/components/ui/TimelineCurrencyInfo";
@@ -103,7 +103,8 @@ class Timeline extends React.Component<TimelineProps, TimelineState> {
             />
             <div className={styles["Timeline__DaysRange"]}>
               <h1>Select chart days range:</h1>
-              <NumberInput
+              <Input
+                type="number"
                 value={selectedDays}
                 onChange={this.updateSelectedDays}
                 max={31}

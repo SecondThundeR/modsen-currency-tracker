@@ -1,0 +1,25 @@
+.BankMap {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  padding: 128px 0px;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+}
+
+.BankMap__ControlsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 16px;
+  margin: 0 auto;
+  justify-content: center;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .BankMap {
+    width: 100%;
+  }
+}

@@ -5,6 +5,7 @@ declare global {
       COINAPI_KEY: string;
       BACKEND_MAIL_ENDPOINT: string;
       MAPBOX_KEY: string;
+      GEOAPIFY_KEY: string;
     }
   }
 }

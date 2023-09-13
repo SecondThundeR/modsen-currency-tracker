@@ -1,0 +1,8 @@
+.CurrencySearchDropdownItem:not(:last-child) {
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--text-secondary);
+}
+
+.CurrencySearchDropdownItem > h1 {
+  font-size: 18px;
+}

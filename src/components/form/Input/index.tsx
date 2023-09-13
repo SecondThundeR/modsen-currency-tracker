@@ -7,6 +7,7 @@ interface InputProps
     InputHTMLAttributes<HTMLInputElement>,
     | "value"
     | "onChange"
+    | "onFocus"
     | "max"
     | "type"
     | "placeholder"

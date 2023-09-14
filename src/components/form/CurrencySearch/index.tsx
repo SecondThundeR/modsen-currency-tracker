@@ -37,7 +37,7 @@ class CurrencySearch extends React.Component<
   render() {
     const { value, isFocused } = this.state;
     return (
-      <div className={styles["CurrencySearch"]}>
+      <div data-cy="currency-search" className={styles["CurrencySearch"]}>
         <Input
           placeholder="Currency search..."
           value={value}

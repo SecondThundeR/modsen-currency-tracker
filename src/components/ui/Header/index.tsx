@@ -17,7 +17,7 @@ function Header() {
   const onThemeChange = useThemeChange();
 
   return (
-    <header className={styles["Header"]}>
+    <header data-cy="header" className={styles["Header"]}>
       <div className={styles["Header__Burger"]}>
         <Icon width={36} height={36} iconSrc={diagramLogo} />
         <div className={styles["Header__BurgerWrapper"]}>
@@ -25,6 +25,7 @@ function Header() {
         </div>
       </div>
       <div
+        data-cy="header-content"
         className={clsx(styles["Header__Content"], {
           [styles["Header__Content--visible"]]: isOpen,
         })}

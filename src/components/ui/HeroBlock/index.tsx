@@ -7,7 +7,7 @@ import styles from "./HeroBlock.module.css";
 
 function HeroBlock() {
   return (
-    <div className={styles["HeroBlock"]}>
+    <div data-cy="hero-block" className={styles["HeroBlock"]}>
       <div className={styles["HeroBlock__Company"]}>
         <h1>Modsen Currency Tracker</h1>
         <p>Quotes for the dollar and other international currencies.</p>

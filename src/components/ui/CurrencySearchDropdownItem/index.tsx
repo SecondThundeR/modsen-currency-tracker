@@ -15,6 +15,7 @@ class CurrencySearchDropdownItem extends React.Component<CurrencySearchDropdownI
     const { id, name } = item;
     return (
       <div
+        data-cy="dropdown-item"
         className={styles["CurrencySearchDropdownItem"]}
         onClick={() => setSelectedCurrency(name)}
       >

@@ -13,7 +13,11 @@ const Hamburger = memo(function Hamburger({
   toggleOpen,
 }: HamburgerProps) {
   return (
-    <div className={styles["Hamburger"]} onClick={toggleOpen}>
+    <div
+      data-cy="hamburger"
+      className={styles["Hamburger"]}
+      onClick={toggleOpen}
+    >
       <span
         className={clsx(styles["Hamburger__Burger"], {
           [styles["Hamburger__Burger--first"]]: isOpen,

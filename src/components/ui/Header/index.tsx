@@ -25,6 +25,7 @@ function Header() {
         </div>
       </div>
       <div
+        data-cy="header-content"
         className={clsx(styles["Header__Content"], {
           [styles["Header__Content--visible"]]: isOpen,
         })}

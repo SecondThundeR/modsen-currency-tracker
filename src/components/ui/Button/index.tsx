@@ -12,10 +12,16 @@ interface ButtonProps
 const Button = memo(function Button({
   children,
   className,
+  type = "button",
   ...props
 }: ButtonProps) {
   return (
-    <button className={className ?? styles["Button"]} {...props}>
+    <button
+      data-cy={type}
+      className={className ?? styles["Button"]}
+      type={type}
+      {...props}
+    >
       {children}
     </button>
   );

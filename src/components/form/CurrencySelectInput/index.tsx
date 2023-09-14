@@ -15,6 +15,7 @@ class CurrencySelectInput extends React.Component<CurrencySelectInputProps> {
     const { value, onChange, options, optionsHeaderText } = this.props;
     return (
       <select
+        data-cy="currency-select"
         className={styles["CurrencySelectInput"]}
         defaultValue=""
         value={value}

@@ -14,7 +14,7 @@ const TextArea = memo(function TextArea({ label, ...props }: TextAreaProps) {
   return (
     <label className={styles["TextArea__Label"]}>
       {label}
-      <textarea className={styles["TextArea"]} {...props} />
+      <textarea data-cy="textarea" className={styles["TextArea"]} {...props} />
     </label>
   );
 });

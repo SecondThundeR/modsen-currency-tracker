@@ -4,16 +4,16 @@ describe("Currency Converter Spec", () => {
   });
 
   it("Opens and closes currency converter modal", () => {
-    cy.contains("button", "Bitcoin").click();
+    cy.get('[data-cy="button"]').contains("Bitcoin").click();
     cy.get("div#portal").children().should("not.have.length", 0);
-    cy.get("div#backdrop").click("bottom");
+    cy.get('[data-cy="backdrop"]').click("bottom");
     cy.get("div#portal").children().should("have.length", 0);
   });
 
   it("Fetches currencies and selects the same one", () => {
-    cy.contains("button", "Commercial Dollar").click();
-    cy.get("select").select("BYN");
-    cy.get("input").type("00");
-    cy.get("h1").contains(/^100 Commercial Dollar is \d+(\.\d+)? BYN/gm);
+    cy.get('[data-cy="button"]').contains("Bitcoin").click();
+    cy.get('[data-cy="select"]').select("USD");
+    cy.get('[data-cy="input"]').type("00");
+    cy.get("h1").contains(/^100 Bitcoin is \d+(\.\d+)? USD/gm);
   });
 });

@@ -8,13 +8,13 @@ describe("Theme Switch Spec", () => {
   });
 
   it("Switch to light theme", () => {
-    const button = cy.contains("Change theme");
+    const button = cy.get('[data-cy="button"]').contains("Change theme");
     button.click();
     cy.get("html").invoke("attr", "data-theme").should("eq", "light");
   });
 
   it("Switch to light theme and back to dark", () => {
-    const button = cy.contains("Change theme");
+    const button = cy.get('[data-cy="button"]').contains("Change theme");
     button.click();
     cy.get("html").invoke("attr", "data-theme").should("eq", "light");
     button.click();

@@ -27,5 +27,6 @@
     "isolatedModules": true,
     "skipLibCheck": true
   },
+  "include": ["src/**/*", "./jestSetup.ts"],
   "exclude": ["node_modules", "dist"]
 }

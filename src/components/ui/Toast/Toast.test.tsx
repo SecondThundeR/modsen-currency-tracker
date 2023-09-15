@@ -1,13 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React from "react";
 import { render } from "@testing-library/react";
 
 import Toast from ".";
-
-jest.mock("react-dom", () => ({
-  ...jest.requireActual("react-dom"),
-  createPortal: jest.fn((element) => element),
-}));
 
 describe("Toast Unit Testing", () => {
   let root: HTMLDivElement;

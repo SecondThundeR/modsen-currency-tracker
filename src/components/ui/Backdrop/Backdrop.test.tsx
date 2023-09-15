@@ -1,13 +1,7 @@
-/* eslint-disable @typescript-eslint/no-unsafe-return */
 import React from "react";
 import { render } from "@testing-library/react";
 
 import Backdrop from ".";
-
-jest.mock("react-dom", () => ({
-  ...jest.requireActual("react-dom"),
-  createPortal: jest.fn((element) => element),
-}));
 
 describe("Backdrop Unit Testing", () => {
   let root: HTMLDivElement;

@@ -4,13 +4,13 @@ import { render } from "@testing-library/react";
 import Loader from ".";
 
 describe("Loader Unit Testing", () => {
-  it("should render the loader component", () => {
+  it("Renders the Loader component", () => {
     const { getByTestId } = render(<Loader />);
     const loader = getByTestId("loader");
     expect(loader).toBeInTheDocument();
   });
 
-  it('should render the "Loading..." text', () => {
+  it('Renders the "Loading..." text', () => {
     const { getByText } = render(<Loader />);
     const loadingText = getByText("Loading...");
     expect(loadingText).toBeInTheDocument();

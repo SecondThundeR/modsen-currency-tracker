@@ -20,16 +20,19 @@ const Hamburger = memo(function Hamburger({
       onClick={toggleOpen}
     >
       <span
+        data-testid="hamburger-first-burger"
         className={clsx(styles["Hamburger__Burger"], {
           [styles["Hamburger__Burger--first"]]: isOpen,
         })}
       />
       <span
+        data-testid="hamburger-second-burger"
         className={clsx(styles["Hamburger__Burger"], {
           [styles["Hamburger__Burger--second"]]: isOpen,
         })}
       />
       <span
+        data-testid="hamburger-third-burger"
         className={clsx(styles["Hamburger__Burger"], {
           [styles["Hamburger__Burger--third"]]: isOpen,
         })}

@@ -14,6 +14,7 @@ const Hamburger = memo(function Hamburger({
 }: HamburgerProps) {
   return (
     <div
+      data-testid="hamburger"
       data-cy="hamburger"
       className={styles["Hamburger"]}
       onClick={toggleOpen}

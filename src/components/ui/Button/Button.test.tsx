@@ -1,5 +1,4 @@
 import React from "react";
-import { describe, expect, it } from "@jest/globals";
 import { cleanup, fireEvent, render } from "@testing-library/react";
 
 import Button from ".";

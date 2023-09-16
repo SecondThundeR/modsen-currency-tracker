@@ -4,22 +4,30 @@ import { render } from "@testing-library/react";
 import Toast from ".";
 
 describe("Toast Unit Testing", () => {
-  let root: HTMLDivElement;
+  const props = {
+    isOpen: true,
+    children: "Toast message",
+  };
 
-  beforeEach(() => {
-    root = document.createElement("div");
-    root.id = "root";
-    document.body.appendChild(root);
+  it("Renders the toast with the correct props", () => {
+    const { getByTestId } = render(<Toast {...props} />);
+    const toast = getByTestId("toast");
+
+    expect(toast).toBeInTheDocument();
+    expect(toast).toHaveTextContent(props.children);
+    expect(toast).toHaveClass("Toast");
+    expect(toast).toHaveClass("Toast--visible");
   });
 
-  afterEach(() => {
-    document.body.removeChild(root);
-  });
+  it("Does render the toast with opacity 0 when isOpen is false", () => {
+    const { queryByTestId } = render(
+      <Toast isOpen={false}>{props.children}</Toast>,
+    );
+    const toast = queryByTestId("toast");
 
-  it("Renders toast", () => {
-    const { queryByText } = render(<Toast isOpen>Toast content</Toast>, {
-      container: root,
-    });
-    expect(queryByText(/Toast content/i)).toBeTruthy();
+    expect(toast).toBeInTheDocument();
+    expect(toast).toHaveTextContent(props.children);
+    expect(toast).toHaveClass("Toast");
+    expect(toast).not.toHaveClass("Toast--visible");
   });
 });

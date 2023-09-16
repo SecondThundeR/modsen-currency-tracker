@@ -1,49 +1,45 @@
 import React from "react";
-import { cleanup, fireEvent, render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 
 import Button from ".";
 
 describe("Button Unit Testing", () => {
-  let consoleOutput: string[] = [];
-  const mockedLog = (output: string) => consoleOutput.push(output);
-  const originalLog = console.log;
+  it("Renders the children", () => {
+    const { getByRole } = render(<Button>Click me</Button>);
+    const button = getByRole("button", { name: /click me/i });
 
-  beforeEach(() => (console.log = mockedLog));
-
-  afterEach(() => {
-    console.log = originalLog;
-    consoleOutput = [];
-    cleanup();
+    expect(button).toBeInTheDocument();
   });
 
-  it("Renders button", () => {
-    const { queryByText } = render(<Button>Button text</Button>);
-    expect(queryByText(/Button text/i)).toBeTruthy();
+  it("Calls the onClick function when clicked", () => {
+    const onClick = jest.fn();
+    const { getByRole } = render(<Button onClick={onClick}>Click me</Button>);
+    const button = getByRole("button", { name: /click me/i });
+
+    fireEvent.click(button);
+    expect(onClick).toHaveBeenCalled();
   });
 
-  it("Fires onClick event", () => {
-    const { queryByText } = render(
-      <Button onClick={() => console.log("Clicked!")}>Button text</Button>,
+  it("Renders the button with the correct type", () => {
+    const { getByTestId } = render(<Button type="submit">Submit</Button>);
+    const button = getByTestId("submit");
+
+    expect(button).toHaveAttribute("type", "submit");
+  });
+
+  it("Renders the button with the correct class name", () => {
+    const { getByRole } = render(
+      <Button className="custom-class">Click me</Button>,
     );
-    const element = queryByText(/Button text/i);
-    if (!element) throw new Error("Element not found");
+    const button = getByRole("button", { name: /click me/i });
 
-    expect(element).toBeTruthy();
-    fireEvent.click(element);
-    expect(consoleOutput.at(-1)).toContain("Clicked!");
+    expect(button).toHaveClass("custom-class");
   });
 
-  it("Doesn't fires onClick event when disabled", () => {
-    const { queryByText } = render(
-      <Button onClick={() => console.log("Clicked!")} disabled>
-        Button text
-      </Button>,
-    );
-    const element = queryByText(/Button text/i);
-    if (!element) throw new Error("Element not found");
+  it("Renders the button as disabled", () => {
+    const { getByRole } = render(<Button disabled>Click me</Button>);
+    const button = getByRole("button", { name: /click me/i });
 
-    expect(element).toBeTruthy();
-    fireEvent.click(element);
-    expect(consoleOutput.at(-1) ?? "No output").toContain("No output");
+    expect(button).toBeDisabled();
   });
 });

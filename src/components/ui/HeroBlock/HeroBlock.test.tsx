@@ -1,16 +1,20 @@
 import React from "react";
-import { cleanup, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import HeroBlock from ".";
 
 describe("HeroBlock Unit Testing", () => {
-  afterEach(cleanup);
+  it("Renders the company name, description and correct icon", () => {
+    const { getByText, getByRole } = render(<HeroBlock />);
+    const companyName = getByText("Modsen Currency Tracker");
+    const companyDescription = getByText(
+      "Quotes for the dollar and other international currencies.",
+    );
+    const image = getByRole("img");
 
-  it("Renders HeroBlock", () => {
-    const { queryByText } = render(<HeroBlock />);
-    expect(queryByText(/Modsen Currency Tracker/i)).toBeTruthy();
-    expect(
-      queryByText(/Quotes for the dollar and other international currencies./i),
-    ).toBeTruthy();
+    expect(companyName).toBeInTheDocument();
+    expect(companyDescription).toBeInTheDocument();
+    expect(image).toHaveAttribute("width", "184");
+    expect(image).toHaveAttribute("height", "184");
   });
 });

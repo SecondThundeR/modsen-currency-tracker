@@ -1,19 +1,31 @@
 import React from "react";
-import { describe, expect, it } from "@jest/globals";
-import { cleanup, render } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import Alert from ".";
 
 describe("Alert Unit Testing", () => {
-  afterEach(cleanup);
+  it("Renders a success alert", () => {
+    const { getByTestId } = render(
+      <Alert type="success">Success message</Alert>,
+    );
+    const alert = getByTestId("alert-success");
 
-  it("Alert renders error variant", () => {
-    const { queryByText } = render(<Alert type="error">Error alert</Alert>);
-    expect(queryByText(/Error alert/i)).toBeTruthy();
+    expect(alert).toHaveClass("Alert__Success");
   });
 
-  it("Alert renders error variant", () => {
-    const { queryByText } = render(<Alert type="success">Success alert</Alert>);
-    expect(queryByText(/Success alert/i)).toBeTruthy();
+  it("Renders an error alert", () => {
+    const { getByTestId } = render(<Alert type="error">Error message</Alert>);
+    const alert = getByTestId("alert-error");
+
+    expect(alert).toHaveClass("Alert__Error");
+  });
+
+  it("Renders the children", () => {
+    const { getByTestId } = render(
+      <Alert type="success">Success message</Alert>,
+    );
+    const alert = getByTestId("alert-success");
+
+    expect(alert).toHaveTextContent("Success message");
   });
 });

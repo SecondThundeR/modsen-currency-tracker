@@ -1,28 +1,37 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 
 import Backdrop from ".";
 
+jest.mock("@/hooks/useCurrencyModal");
+
 describe("Backdrop Unit Testing", () => {
-  let root: HTMLDivElement;
-
-  beforeEach(() => {
-    root = document.createElement("div");
-    root.id = "root";
-    document.body.appendChild(root);
-  });
-
-  afterEach(() => {
-    document.body.removeChild(root);
-  });
-
-  it("Renders backdrop", () => {
-    const { queryByText } = render(
-      <Backdrop closeModal={() => {}}>
-        <div>Modal content</div>
+  it("Renders the children", () => {
+    const { getByTestId } = render(
+      <Backdrop closeModal={jest.fn()}>
+        <div>Test content</div>
       </Backdrop>,
-      { container: root },
     );
-    expect(queryByText(/Modal content/i)).toBeTruthy();
+    const content = getByTestId("backdrop").firstChild;
+
+    expect(content).toBeInTheDocument();
+    expect(content).toHaveTextContent("Test content");
+  });
+
+  it("Calls the closeModal function when clicked", () => {
+    const closeModal = jest.fn();
+    const { getByTestId } = render(<Backdrop closeModal={closeModal} />);
+    const backdrop = getByTestId("backdrop");
+
+    fireEvent.click(backdrop);
+    expect(closeModal).toHaveBeenCalled();
+  });
+
+  it("Renders the backdrop with the correct class name", () => {
+    const closeModal = jest.fn();
+    const { getByTestId } = render(<Backdrop closeModal={closeModal} />);
+    const backdrop = getByTestId("backdrop");
+
+    expect(backdrop).toHaveClass("Backdrop");
   });
 });

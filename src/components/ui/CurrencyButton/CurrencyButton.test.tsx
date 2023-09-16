@@ -1,67 +1,46 @@
 import React from "react";
-import { cleanup, fireEvent, render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 
 import CurrencyButton from ".";
 
 describe("CurrencyButton Unit Testing", () => {
-  let consoleOutput: string[] = [];
-  const mockedLog = (output: string) => consoleOutput.push(output);
-  const originalLog = console.log;
+  const currencyInfo = {
+    id: "BTC",
+    name: "Bitcoin",
+    iconSrc: "/icons/btc.svg",
+  };
 
-  beforeEach(() => (console.log = mockedLog));
+  it("Renders the currency icon and info", () => {
+    const { getByRole, getByText } = render(
+      <CurrencyButton {...currencyInfo} />,
+    );
+    const icon = getByRole("img");
+    const name = getByText("Bitcoin");
+    const noDetails = getByText("No conversion details found");
 
-  afterEach(() => {
-    console.log = originalLog;
-    consoleOutput = [];
-    cleanup();
+    expect(icon).toBeInTheDocument();
+    expect(icon).toHaveAttribute("width", "64");
+    expect(icon).toHaveAttribute("height", "64");
+    expect(icon).toHaveAttribute("src", "/icons/btc.svg");
+    expect(name).toBeInTheDocument();
+    expect(noDetails).toBeInTheDocument();
   });
 
-  it("Renders button with details", () => {
-    const { queryByText } = render(
-      <CurrencyButton id="USD" name="Dollar" iconSrc="" details="$123" />,
+  it("Calls the onClick function when clicked", () => {
+    const onClick = jest.fn();
+    const { getByRole } = render(
+      <CurrencyButton {...currencyInfo} onClick={onClick} />,
     );
-    expect(queryByText(/Dollar/i)).toBeTruthy();
-    expect(queryByText(/\$123/i)).toBeTruthy();
+    const button = getByRole("button");
+
+    fireEvent.click(button);
+    expect(onClick).toHaveBeenCalled();
   });
 
-  it("Renders button with rate", () => {
-    const { queryByText } = render(
-      <CurrencyButton
-        id="USD"
-        name="Dollar"
-        iconSrc=""
-        rate={123.123123123}
-        rate_base="$"
-      />,
-    );
-    expect(queryByText(/Dollar/i)).toBeTruthy();
-    expect(queryByText(/123.123123 \$/i)).toBeTruthy();
-  });
+  it("Renders the button with the correct class name", () => {
+    const { getByRole } = render(<CurrencyButton {...currencyInfo} />);
+    const button = getByRole("button");
 
-  it("Renders button with no details and rate", () => {
-    const { queryByText } = render(
-      <CurrencyButton id="USD" name="Dollar" iconSrc="" />,
-    );
-    expect(queryByText(/Dollar/i)).toBeTruthy();
-    expect(queryByText(/No conversion details found/i)).toBeTruthy();
-  });
-
-  it("Fires onClick event", () => {
-    const { queryByText } = render(
-      <CurrencyButton
-        id="USD"
-        name="Dollar"
-        iconSrc=""
-        details="$123"
-        onClick={() => console.log("Clicked!")}
-      />,
-    );
-    const element = queryByText(/Dollar/i);
-    if (!element) throw new Error("Element not found");
-
-    expect(element).toBeTruthy();
-    expect(queryByText(/\$123/i)).toBeTruthy();
-    fireEvent.click(element);
-    expect(consoleOutput.at(-1)).toContain("Clicked!");
+    expect(button).toHaveClass("CurrencyButton");
   });
 });

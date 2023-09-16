@@ -1,0 +1,9 @@
+.InvalidPage {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 128px 16px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

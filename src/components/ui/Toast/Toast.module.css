@@ -1,0 +1,19 @@
+.Toast {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: var(--background-secondary);
+  border-radius: 16px;
+  padding: 18px 24px;
+  margin: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.2s;
+  z-index: 1000;
+}
+
+.Toast--visible {
+  opacity: 1;
+}

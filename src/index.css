@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+}
+
+:root {
+  --background-primary: #030304;
+  --background-hero: linear-gradient(
+    253deg,
+    #121212 11.77%,
+    rgba(36, 121, 64, 0) 91.12%
+  );
+  --background-backdrop: rgba(0, 0, 0, 0.8);
+  --background-secondary: #202025;
+  --background-error: #cd1818;
+  --background-success: #1e5128;
+  --background-hover: #2d2d32;
+  --text-primary: white;
+  --text-alert: white;
+  --text-secondary: grey;
+  --border-color: #474747;
+  --accent: #00bc4f;
+}
+
+[data-theme="light"] {
+  --background-primary: white;
+  --background-hero: white;
+  --background-backdrop: rgba(0, 0, 0, 0.8);
+  --background-secondary: #d8d8d8;
+  --background-error: #c70039;
+  --background-success: #7aa874;
+  --background-hover: white;
+  --text-primary: black;
+  --text-alert: white;
+  --text-secondary: grey;
+  --border-color: #767575;
+  --accent: #00bc4f;
+}

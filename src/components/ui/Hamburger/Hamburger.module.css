@@ -1,0 +1,38 @@
+.Hamburger {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  z-index: 10;
+}
+
+.Hamburger--hidden {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: column nowrap;
+  z-index: 10;
+}
+
+.Hamburger__Burger {
+  width: 32px;
+  height: 4px;
+  border-radius: 12px;
+  background-color: var(--text-primary);
+  transform-origin: 1px;
+  transition: 0.1s;
+}
+
+.Hamburger__Burger--first {
+  transform: rotate(45deg);
+}
+
+.Hamburger__Burger--second {
+  opacity: 0;
+}
+
+.Hamburger__Burger--third {
+  transform: rotate(-45deg);
+}

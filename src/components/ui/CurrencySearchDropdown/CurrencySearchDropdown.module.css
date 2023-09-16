@@ -1,0 +1,12 @@
+.CurrencySearchDropdown {
+  max-height: 250px;
+  background-color: var(--background-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid var(--text-secondary);
+  border-radius: 12px;
+  overflow-y: auto;
+  text-align: left;
+}

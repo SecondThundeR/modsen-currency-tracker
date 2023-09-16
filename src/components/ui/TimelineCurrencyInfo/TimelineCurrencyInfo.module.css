@@ -1,0 +1,22 @@
+.TimelineCurrencyInfo {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.TimelineCurrencyInfo__Details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.TimelineCurrencyInfo__Details > h1 {
+  font-size: 20px;
+}
+
+.TimelineCurrencyInfo__Details > p {
+  font-size: 16px;
+  opacity: 0.6;
+}

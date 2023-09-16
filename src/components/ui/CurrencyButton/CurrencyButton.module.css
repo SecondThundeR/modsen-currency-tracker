@@ -1,0 +1,19 @@
+.CurrencyButton {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  background-color: var(--background-secondary);
+  border: 1px solid var(--border-color);
+  padding: 24px;
+  border-radius: 8px;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.CurrencyButton:hover {
+  background-color: var(--background-hover);
+}
+
+.CurrencyButton:active {
+  transform: scale(0.98);
+}

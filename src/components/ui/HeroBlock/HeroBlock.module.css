@@ -1,0 +1,48 @@
+.HeroBlock {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  padding: 64px 36px;
+  background: var(--background-hero);
+}
+
+.HeroBlock__Company {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+
+.HeroBlock__Company > h1 {
+  background: linear-gradient(
+    90deg,
+    #00ce2c 0.18%,
+    #aedf23 49.3%,
+    #a3dc00 99.88%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 48px;
+}
+
+.HeroBlock__Company > p {
+  color: var(--text-secondary);
+  font-size: 18px;
+  font-weight: 300;
+}
+
+@media screen and (max-width: 768px) {
+  .HeroBlock > img {
+    display: none;
+  }
+
+  .HeroBlock__Company > h1 {
+    font-size: 32px;
+  }
+
+  .HeroBlock__Company > p {
+    font-size: 16px;
+  }
+}

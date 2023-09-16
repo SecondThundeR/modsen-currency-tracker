@@ -1,0 +1,30 @@
+.LastUpdated {
+  display: flex;
+  gap: 16px;
+  padding: 32px 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.LastUpdated > p {
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.LastUpdated__Animation {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: var(--accent);
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 178, 79, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 16px rgba(0, 178, 79, 0);
+  }
+}

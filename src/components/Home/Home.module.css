@@ -1,0 +1,16 @@
+.Home {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  padding-top: 24px;
+  padding-left: 96px;
+  padding-right: 96px;
+  padding-bottom: 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .Home {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}

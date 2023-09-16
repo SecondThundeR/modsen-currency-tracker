@@ -15,6 +15,7 @@ class Pin extends React.Component<PinProps> {
     const { size } = this.props;
     return (
       <svg
+        data-testid="pin"
         height={size ?? PIN_DEFAULT_HEIGHT}
         viewBox="0 0 24 24"
         style={PIN_STYLE}

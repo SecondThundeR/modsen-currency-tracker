@@ -2,8 +2,8 @@ import React, { ChangeEventHandler } from "react";
 
 import CurrencySelectInput from "@/components/form/CurrencySelectInput";
 import Input from "@/components/form/Input";
+import TimelineChartGraph from "@/components/TimelineChartGraph";
 import Loader from "@/components/ui/Loader";
-import TimelineChartGraph from "@/components/ui/TimelineChartGraph";
 import TimelineCurrencyInfo from "@/components/ui/TimelineCurrencyInfo";
 import Toast from "@/components/ui/Toast";
 import { CURRENCY_OPTIONS } from "@/constants/currencyOptions";

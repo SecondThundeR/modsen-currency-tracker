@@ -15,6 +15,7 @@ class Toast extends React.Component<ToastProps> {
     return createPortal(
       <div
         data-cy="toast"
+        data-testid="toast"
         className={clsx(styles["Toast"], {
           [styles["Toast--visible"]]: isOpen,
         })}

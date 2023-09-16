@@ -17,6 +17,7 @@ const SelectInput = memo(function SelectInput({
   return (
     <select
       data-cy="select"
+      data-testid="select"
       className={styles["SelectInput"]}
       defaultValue=""
       value={value}

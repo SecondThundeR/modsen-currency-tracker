@@ -17,7 +17,7 @@ const CurrencyButtonInfo = memo(function CurrencyButtonInfo({
       <h1>{name}</h1>
       {details && <p>{details}</p>}
       {rate && <p>{`${rate.toFixed(6)} ${rate_base}`}</p>}
-      {!details && !rate && <p>No conversion details to {rate_base}</p>}
+      {!details && !rate && <p>No conversion details found</p>}
     </div>
   );
 });

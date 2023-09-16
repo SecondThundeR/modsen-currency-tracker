@@ -50,6 +50,7 @@ const CurrencyModal = memo(function CurrencyModal({
     <Backdrop closeModal={closeModal}>
       <div
         data-cy="currency-modal"
+        data-testid="currency-modal"
         className={styles["CurrencyModal"]}
         onClick={(event) => event.stopPropagation()}
       >
@@ -61,27 +62,25 @@ const CurrencyModal = memo(function CurrencyModal({
           </div>
         </div>
 
-        {conversionOptions && (
-          <div className={styles["CurrencyModal__CurrencySelect"]}>
-            {isLoading && <p>Loading...</p>}
-            {isError && (
-              <p>There is an error while trying to get rate. We are sorry...</p>
-            )}
-            {!isLoading && !isError && (
-              <>
-                <p>Target currency:</p>
-                <SelectInput
-                  value={selectedCurrency}
-                  optionsHeaderText="Select currency"
-                  onChange={onSetCurrency}
-                  options={conversionOptions}
-                />
-              </>
-            )}
-          </div>
-        )}
+        <div className={styles["CurrencyModal__CurrencySelect"]}>
+          {isLoading && <p>Loading...</p>}
+          {isError && (
+            <p>There is an error while trying to get rate. We are sorry...</p>
+          )}
+          {conversionOptions && (
+            <>
+              <p>Target currency:</p>
+              <SelectInput
+                value={selectedCurrency}
+                optionsHeaderText="Select currency"
+                onChange={onSetCurrency}
+                options={conversionOptions}
+              />
+            </>
+          )}
+        </div>
 
-        {selectedCurrency !== undefined && selectedRate !== undefined && (
+        {selectedCurrency && selectedRate && (
           <div className={styles["CurrencyModal__CurrencyResult"]}>
             <div className={styles["CurrencyModal__CurrencyAmount"]}>
               <p>Select amount of currency:</p>
@@ -94,7 +93,7 @@ const CurrencyModal = memo(function CurrencyModal({
             <h1>
               {selectedAmount} {name} is{" "}
               {(selectedAmount * selectedRate.rate).toFixed(6)}{" "}
-              {selectedRate?.asset_id_quote ?? ""}
+              {selectedRate.asset_id_quote}
             </h1>
           </div>
         )}

@@ -12,26 +12,13 @@ interface NavMenuProps {
   linkClass?: string;
 }
 
-const compareProps = (oldProps: NavMenuProps, newProps: NavMenuProps) => {
-  if (
-    oldProps.menu.length !== newProps.menu.length ||
-    oldProps.linkClass !== newProps.linkClass ||
-    oldProps.navClass !== newProps.navClass
-  )
-    return false;
-  if (!oldProps.menu.every((item, index) => item === newProps.menu[index]))
-    return false;
-
-  return true;
-};
-
 const NavMenu = memo(function NavMenu({
   menu,
   navClass,
   linkClass,
 }: NavMenuProps) {
   return (
-    <nav className={navClass}>
+    <nav data-testid="nav-menu" className={navClass}>
       {menu.map((item) => (
         <Link key={item.to} className={linkClass} to={item.to}>
           {item.name}
@@ -39,6 +26,6 @@ const NavMenu = memo(function NavMenu({
       ))}
     </nav>
   );
-}, compareProps);
+});
 
 export default NavMenu;

@@ -10,7 +10,7 @@ const SectionHeader = memo(function SectionHeader({
   title,
 }: SectionHeaderProps) {
   return (
-    <div className={styles["SectionHeader"]}>
+    <div data-testid="section-header" className={styles["SectionHeader"]}>
       <p>{title}</p>
     </div>
   );

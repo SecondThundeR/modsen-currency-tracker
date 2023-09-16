@@ -1,7 +1,7 @@
 import React from "react";
 import { Marker } from "react-map-gl";
 
-import Pin from "@/components/map/Pin";
+import Pin from "@/components/ui/Pin";
 import { EnhancedPlaceDetails, EnhancedPlaceFeature } from "@/types/place";
 
 interface BankMarkersProps {

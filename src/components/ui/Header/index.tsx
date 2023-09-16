@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import clsx from "clsx";
 
 import diagramLogo from "@/assets/diagramLogo.png";
@@ -8,16 +8,18 @@ import Icon from "@/components/ui/Icon";
 import NavMenu from "@/components/ui/NavMenu";
 import { NAV_MENU_ITEMS } from "@/constants/navMenuItems";
 import useBooleanToggle from "@/hooks/useBooleanToggle";
-import useThemeChange from "@/hooks/useThemeChange";
 
 import styles from "./Header.module.css";
 
-function Header() {
+interface HeaderProps {
+  onThemeChange?: () => void;
+}
+
+const Header = memo(function Header({ onThemeChange }: HeaderProps) {
   const [isOpen, toggleIsOpen] = useBooleanToggle();
-  const onThemeChange = useThemeChange();
 
   return (
-    <header data-cy="header" className={styles["Header"]}>
+    <header data-cy="header" data-testid="header" className={styles["Header"]}>
       <div className={styles["Header__Burger"]}>
         <Icon width={36} height={36} iconSrc={diagramLogo} />
         <div className={styles["Header__BurgerWrapper"]}>
@@ -39,6 +41,6 @@ function Header() {
       </div>
     </header>
   );
-}
+});
 
 export default Header;

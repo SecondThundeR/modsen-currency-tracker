@@ -5,7 +5,7 @@ import styles from "./Loader.module.css";
 
 function Loader() {
   return (
-    <div data-cy="loader" className={styles["Loader"]}>
+    <div data-testid="loader" data-cy="loader" className={styles["Loader"]}>
       <PuffLoader color="#00bc4f" />
       <h1>Loading...</h1>
     </div>

@@ -18,6 +18,7 @@ const Button = memo(function Button({
   return (
     <button
       data-cy={type}
+      data-testid={type}
       className={className ?? styles["Button"]}
       type={type}
       {...props}

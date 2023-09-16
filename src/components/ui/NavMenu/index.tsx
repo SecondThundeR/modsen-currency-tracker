@@ -18,7 +18,7 @@ const NavMenu = memo(function NavMenu({
   linkClass,
 }: NavMenuProps) {
   return (
-    <nav className={navClass}>
+    <nav data-testid="nav-menu" className={navClass}>
       {menu.map((item) => (
         <Link key={item.to} className={linkClass} to={item.to}>
           {item.name}

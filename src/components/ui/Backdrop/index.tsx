@@ -14,7 +14,12 @@ const Backdrop = memo(function Backdrop({
   closeModal,
 }: BackdropProps) {
   return createPortal(
-    <div data-cy="backdrop" className={styles["Backdrop"]} onClick={closeModal}>
+    <div
+      data-cy="backdrop"
+      data-testid="backdrop"
+      className={styles["Backdrop"]}
+      onClick={closeModal}
+    >
       {children}
     </div>,
     document.getElementById("portal")!,

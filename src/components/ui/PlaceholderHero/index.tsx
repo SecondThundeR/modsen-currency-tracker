@@ -10,7 +10,7 @@ const PlaceholderHero = memo(function PlaceholderHero({
   text,
 }: PlaceholderHeroProps) {
   return (
-    <div className={styles["PlaceholderHero"]}>
+    <div data-testid="placeholder-hero" className={styles["PlaceholderHero"]}>
       <h1>{text}</h1>
     </div>
   );

@@ -50,6 +50,7 @@ const CurrencyModal = memo(function CurrencyModal({
     <Backdrop closeModal={closeModal}>
       <div
         data-cy="currency-modal"
+        data-testid="currency-modal"
         className={styles["CurrencyModal"]}
         onClick={(event) => event.stopPropagation()}
       >

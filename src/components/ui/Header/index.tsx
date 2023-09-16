@@ -19,6 +19,7 @@ const Header = memo(function Header({ onThemeChange }: HeaderProps) {
   const [isOpen, toggleIsOpen] = useBooleanToggle();
 
   return (
+    <header data-cy="header" data-testid="header" className={styles["Header"]}>
       <div className={styles["Header__Burger"]}>
         <Icon width={36} height={36} iconSrc={diagramLogo} />
         <div className={styles["Header__BurgerWrapper"]}>

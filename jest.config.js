@@ -4,11 +4,7 @@ module.exports = {
     "\\.(png|jpg)$": "jest-transform-stub",
   },
   collectCoverage: true,
-  collectCoverageFrom: [
-    "src/components/form/**/*.{ts,tsx}",
-    "src/components/ui/**/*.{ts,tsx}",
-    "src/components/map/**/*.{ts,tsx}",
-  ],
+  collectCoverageFrom: ["src/components/ui/**/*.{ts,tsx}"],
   coverageDirectory: "coverage",
   moduleNameMapper: {
     "\\.(css|less|scss|sass)$": "identity-obj-proxy",

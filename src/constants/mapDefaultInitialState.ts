@@ -1,5 +1,9 @@
+const MINSK_CENTER_LONGITUDE = 27.547873;
+const MINSK_CENTER_LATITUDE = 53.902619;
+const DEFAULT_ZOOM = 10;
+
 export const MAP_DEFAULT_INITIAL_STATE = {
-  longitude: 27.547873,
-  latitude: 53.902619,
-  zoom: 10,
+  longitude: MINSK_CENTER_LONGITUDE,
+  latitude: MINSK_CENTER_LATITUDE,
+  zoom: DEFAULT_ZOOM,
 };

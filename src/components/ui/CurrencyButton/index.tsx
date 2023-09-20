@@ -16,9 +16,11 @@ const CurrencyButton = memo(function CurrencyButton({
   iconSrc,
   ...currencyInfo
 }: CurrencyButtonProps) {
+  const { name } = currencyInfo;
+
   return (
     <Button className={styles["CurrencyButton"]} onClick={onClick}>
-      <Icon width={64} height={64} iconSrc={iconSrc} />
+      <Icon width={64} height={64} src={iconSrc} title={name} alt={name} />
       <CurrencyButtonInfo {...currencyInfo} />
     </Button>
   );

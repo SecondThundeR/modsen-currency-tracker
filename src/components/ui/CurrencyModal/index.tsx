@@ -64,7 +64,7 @@ const CurrencyModal = memo(function CurrencyModal({
         onClick={stopModalPropagation}
       >
         <div className={styles["CurrencyModal__CurrencyInfo"]}>
-          <Icon width={64} height={64} iconSrc={iconSrc} />
+          <Icon width={64} height={64} src={iconSrc} title={name} alt={name} />
           <div className={styles["CurrencyModal__CurrencyInfoDetails"]}>
             <p>Selected currency</p>
             <h1>{name}</h1>

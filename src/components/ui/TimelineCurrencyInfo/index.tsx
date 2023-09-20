@@ -16,7 +16,7 @@ class TimelineCurrencyInfo extends React.Component<TimelineCurrencyInfoProps> {
         data-testid="timeline-currency-info"
         className={styles["TimelineCurrencyInfo"]}
       >
-        <Icon width={48} height={48} iconSrc={iconSrc} />
+        <Icon width={48} height={48} src={iconSrc} title={name} alt={name} />
         <div className={styles["TimelineCurrencyInfo__Details"]}>
           <h1>{name}</h1>
           <p>{id}</p>

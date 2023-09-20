@@ -12,7 +12,13 @@ function HeroBlock() {
         <h1>Modsen Currency Tracker</h1>
         <p>Quotes for the dollar and other international currencies.</p>
       </div>
-      <Icon width={184} height={184} iconSrc={diagramLogo} />
+      <Icon
+        width={184}
+        height={184}
+        src={diagramLogo}
+        title="Company Logo"
+        alt="Company Logo"
+      />
     </div>
   );
 }

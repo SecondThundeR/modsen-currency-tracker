@@ -12,7 +12,13 @@ function Footer() {
       <div className={styles["ContentGrid"]}>
         <div className={styles["CompanyBlock"]}>
           <div className={styles["CompanyBlock__Logo"]}>
-            <Icon width={32} height={32} iconSrc={diagramLogo} />
+            <Icon
+              width={32}
+              height={32}
+              src={diagramLogo}
+              title="Company Logo"
+              alt="Company Logo"
+            />
             <h1 className={styles["CompanyBlock__Name"]}>
               Modsen Currency Tracker
             </h1>

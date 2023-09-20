@@ -2,6 +2,7 @@ import React from "react";
 
 import diagramLogo from "@/assets/diagramLogo.png";
 import Icon from "@/components/ui/Icon";
+import { FOOTER_LINKS } from "@/constants/footerLinks";
 
 import styles from "./Footer.module.css";
 
@@ -23,27 +24,16 @@ function Footer() {
             traders worldwide.
           </p>
         </div>
-        <div className={styles["InfoBlock"]}>
-          <p>General</p>
-          <div className={styles["InfoBlock__Links"]}>
-            <p>Market</p>
-            <p>Service</p>
+        {FOOTER_LINKS.map((item) => (
+          <div key={item.id} className={styles["InfoBlock"]}>
+            <p>{item.section}</p>
+            <div className={styles["InfoBlock__Links"]}>
+              {item.links.map((link) => (
+                <p key={link.id}>{link.name}</p>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className={styles["InfoBlock"]}>
-          <p>Product</p>
-          <div className={styles["InfoBlock__Links"]}>
-            <p>Sparks</p>
-            <p>Snaps</p>
-          </div>
-        </div>
-        <div className={styles["InfoBlock"]}>
-          <p>Community</p>
-          <div className={styles["InfoBlock__Links"]}>
-            <p>Ideas</p>
-            <p>Streams</p>
-          </div>
-        </div>
+        ))}
       </div>
       <p className={styles["Footer__bottomText"]}>
         Startsup © 2023-2024, All Rights Reserved

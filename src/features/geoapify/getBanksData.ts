@@ -1,10 +1,11 @@
 import axios from "axios";
 
 import { GEOAPIFY_PLACES_URL } from "@/constants/endpoints";
-import { GEOAPIFY_PLACE_ID } from "@/constants/geoapifyPlaceID";
 import { PlaceDetails } from "@/types/place";
 
-export async function getBanksData(placeId = GEOAPIFY_PLACE_ID) {
+const DEFAULT_PLACE_ID = process.env.GEOAPIFY_DEFAULT_PLACE_ID;
+
+export async function getBanksData(placeId = DEFAULT_PLACE_ID) {
   try {
     const response = await axios.get<PlaceDetails>(GEOAPIFY_PLACES_URL, {
       params: {

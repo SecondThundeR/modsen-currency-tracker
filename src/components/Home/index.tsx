@@ -33,6 +33,7 @@ function Home() {
       <CurrencyGrid
         sectionTitle="Stocks"
         sectionInfo={PLACEHOLDER_STOCKS_DATA}
+        onSectionClick={() => {}}
       />
       <CurrencyGrid
         sectionTitle="Quotes"

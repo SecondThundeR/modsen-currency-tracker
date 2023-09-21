@@ -24,7 +24,7 @@ const Home = memo(function Home() {
     [rates.currentRates],
   );
 
-  if (!rates.isFetching) return <Loader />;
+  if (rates.isFetching) return <Loader />;
 
   if (rates.isError) return <PlaceholderHero text="No data!" />;
 

@@ -1,10 +1,7 @@
 import React, { memo } from "react";
 
+import { SectionHeaderProps } from "./interfaces";
 import styles from "./SectionHeader.module.css";
-
-interface SectionHeaderProps {
-  title: string;
-}
 
 const SectionHeader = memo(function SectionHeader({
   title,

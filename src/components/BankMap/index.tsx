@@ -5,7 +5,6 @@ import CurrencySearch from "@/components/form/CurrencySearch";
 import BankMarkers from "@/components/map/BankMarkers";
 import BankPopup from "@/components/map/BankPopup";
 import Alert from "@/components/ui/Alert";
-import { CURRENCY_OPTIONS } from "@/constants/currencyOptions";
 import { MAP_DEFAULT_INITIAL_STATE } from "@/constants/mapDefaultInitialState";
 import { getBanksData } from "@/features/geoapify/getBanksData";
 import { EnhancedPlaceDetails, EnhancedPlaceFeature } from "@/types/place";
@@ -13,21 +12,7 @@ import { assignRandomBankCurrencies } from "@/utils/assignRandomBankCurrencies";
 import { extractRandomBanks } from "@/utils/extractRandomBanks";
 
 import styles from "./BankMap.module.css";
-
-export type SelectedCurrency = Omit<
-  (typeof CURRENCY_OPTIONS)[number],
-  "iconSrc"
->;
-
-interface BankMapProps {}
-
-interface BankMapState {
-  selectedCurrency: SelectedCurrency | undefined;
-  banksData: EnhancedPlaceDetails | undefined;
-  selectedBank: EnhancedPlaceFeature | null;
-  isLoading: boolean;
-  isError: boolean;
-}
+import { BankMapProps, BankMapState, SelectedCurrency } from "./interfaces";
 
 class BankMap extends React.Component<BankMapProps, BankMapState> {
   state: BankMapState = {

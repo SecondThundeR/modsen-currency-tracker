@@ -1,10 +1,7 @@
-import React, { FormHTMLAttributes, PropsWithChildren } from "react";
+import React from "react";
 
 import styles from "./FormWrapper.module.css";
-
-interface FormWrapperProps
-  extends PropsWithChildren,
-    Pick<FormHTMLAttributes<HTMLFormElement>, "onSubmit"> {}
+import { FormWrapperProps } from "./interfaces";
 
 function FormWrapper({ children, ...props }: FormWrapperProps) {
   return (

@@ -1,12 +1,7 @@
 import React from "react";
 import { Popup } from "react-map-gl";
 
-import { EnhancedPlaceFeature } from "@/types/place";
-
-interface BankPopupProps {
-  bankDetails: EnhancedPlaceFeature;
-  resetPopupInfo: () => void;
-}
+import { BankPopupProps } from "./interfaces";
 
 class BankPopup extends React.Component<BankPopupProps> {
   render() {

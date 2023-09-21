@@ -1,11 +1,8 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import clsx from "clsx";
 
 import styles from "./Alert.module.css";
-
-interface AlertProps extends PropsWithChildren {
-  type: "success" | "error";
-}
+import { AlertProps } from "./interfaces";
 
 function Alert({ type, children }: AlertProps) {
   return (

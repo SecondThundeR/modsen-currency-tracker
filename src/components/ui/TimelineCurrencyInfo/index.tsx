@@ -1,12 +1,9 @@
 import React from "react";
 
 import Icon from "@/components/ui/Icon";
-import { CurrencyType } from "@/types/currency";
 
+import { TimelineCurrencyInfoProps } from "./interfaces";
 import styles from "./TimelineCurrencyInfo.module.css";
-
-interface TimelineCurrencyInfoProps
-  extends Pick<CurrencyType, "id" | "name" | "iconSrc"> {}
 
 class TimelineCurrencyInfo extends React.Component<TimelineCurrencyInfoProps> {
   render() {

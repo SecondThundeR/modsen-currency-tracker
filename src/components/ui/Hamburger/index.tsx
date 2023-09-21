@@ -2,11 +2,7 @@ import React, { memo } from "react";
 import clsx from "clsx";
 
 import styles from "./Hamburger.module.css";
-
-interface HamburgerProps {
-  isOpen: boolean;
-  toggleOpen: () => void;
-}
+import { HamburgerProps } from "./interfaces";
 
 const Hamburger = memo(function Hamburger({
   isOpen,

@@ -1,13 +1,7 @@
 import React from "react";
 
-import { CURRENCY_OPTIONS } from "@/constants/currencyOptions";
-
 import styles from "./CurrencySearchDropdownItem.module.css";
-
-interface CurrencySearchDropdownItemProps
-  extends Omit<(typeof CURRENCY_OPTIONS)[number], "iconSrc"> {
-  setSelectedCurrency: (currency: string) => void;
-}
+import { CurrencySearchDropdownItemProps } from "./interfaces";
 
 class CurrencySearchDropdownItem extends React.Component<CurrencySearchDropdownItemProps> {
   render() {

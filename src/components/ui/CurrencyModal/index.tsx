@@ -14,11 +14,7 @@ import { CURRENCY_OPTIONS } from "@/constants/currencyOptions";
 import useConversionRate from "@/hooks/useConversionRate";
 
 import styles from "./CurrencyModal.module.css";
-
-interface CurrencyModalProps {
-  selectedId: string | null;
-  closeModal: () => void;
-}
+import { CurrencyModalProps } from "./interfaces";
 
 const CurrencyModal = memo(function CurrencyModal({
   selectedId,

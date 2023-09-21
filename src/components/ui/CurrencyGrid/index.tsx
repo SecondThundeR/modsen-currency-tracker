@@ -2,16 +2,9 @@ import React, { memo, useCallback } from "react";
 
 import CurrencyButton from "@/components/ui/CurrencyButton";
 import SectionHeader from "@/components/ui/SectionHeader";
-import useCurrencyModal from "@/hooks/useCurrencyModal";
-import { CurrencyType } from "@/types/currency";
 
 import styles from "./CurrencyGrid.module.css";
-
-interface CurrencyGridProps {
-  sectionTitle: string;
-  sectionInfo: CurrencyType[];
-  onSectionClick: ReturnType<typeof useCurrencyModal>["handlers"]["onOpen"];
-}
+import { CurrencyGridProps } from "./interfaces";
 
 const CurrencyGrid = memo(function CurrencyGrid({
   sectionTitle,

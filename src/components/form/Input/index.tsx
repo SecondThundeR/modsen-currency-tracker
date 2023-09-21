@@ -1,22 +1,7 @@
-import React, { InputHTMLAttributes, memo } from "react";
+import React, { memo } from "react";
 
 import styles from "./Input.module.css";
-
-interface InputProps
-  extends Pick<
-    InputHTMLAttributes<HTMLInputElement>,
-    | "value"
-    | "onChange"
-    | "onFocus"
-    | "max"
-    | "type"
-    | "placeholder"
-    | "required"
-    | "name"
-    | "id"
-  > {
-  label?: string;
-}
+import { InputProps } from "./interfaces";
 
 const Input = memo(function Input({ label, ...props }: InputProps) {
   return (

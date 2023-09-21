@@ -1,10 +1,6 @@
 import axios, { AxiosRequestConfig } from "axios";
 
-export interface SendMailOptions {
-  recepient: string;
-  subject: string;
-  text: string;
-}
+import { SendMailOptions } from "./interfaces";
 
 /**
  * Using backend for sending own emails using Mailgun

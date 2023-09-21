@@ -5,10 +5,9 @@ import Chart from "react-apexcharts";
 import { connect } from "react-redux";
 
 import { RootState } from "@/store";
-import { ThemeState } from "@/store/theme";
-import { RateHistory } from "@/types/coinapi";
 import { extractChartData } from "@/utils/extractChartData";
 
+import { TimelineChartGraphProps } from "./interfaces";
 import styles from "./TimelineChartGraph.module.css";
 
 const CHART_COLORS = {
@@ -23,11 +22,6 @@ const CHART_COLORS = {
     borderColor: "#1c1c1d",
   },
 } as const;
-
-interface TimelineChartGraphProps extends ThemeState {
-  data: RateHistory[];
-  limit: number;
-}
 
 class TimelineChartGraph extends React.Component<TimelineChartGraphProps> {
   constructor(props: TimelineChartGraphProps) {

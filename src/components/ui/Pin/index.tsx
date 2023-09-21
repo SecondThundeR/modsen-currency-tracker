@@ -6,9 +6,7 @@ import {
   PIN_STYLE,
 } from "@/constants/mapPinOptions";
 
-interface PinProps {
-  size?: number;
-}
+import { PinProps } from "./interfaces";
 
 class Pin extends React.Component<PinProps> {
   render() {

@@ -1,13 +1,7 @@
-import React, { ButtonHTMLAttributes, memo, PropsWithChildren } from "react";
+import React, { memo } from "react";
 
 import styles from "./Button.module.css";
-
-interface ButtonProps
-  extends PropsWithChildren,
-    Pick<
-      ButtonHTMLAttributes<HTMLButtonElement>,
-      "className" | "onClick" | "type" | "disabled"
-    > {}
+import { ButtonProps } from "./interfaces";
 
 const Button = memo(function Button({
   children,

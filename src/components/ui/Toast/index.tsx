@@ -1,12 +1,9 @@
-import React, { PropsWithChildren } from "react";
+import React from "react";
 import clsx from "clsx";
 import { createPortal } from "react-dom";
 
+import { ToastProps } from "./interfaces";
 import styles from "./Toast.module.css";
-
-interface ToastProps extends PropsWithChildren {
-  isOpen: boolean;
-}
 
 class Toast extends React.Component<ToastProps> {
   render() {

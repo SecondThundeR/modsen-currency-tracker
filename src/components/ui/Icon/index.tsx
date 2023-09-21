@@ -1,12 +1,8 @@
-import React, { ImgHTMLAttributes, memo } from "react";
+import React, { memo } from "react";
 
 import { getIconDescription } from "@/utils/getIconDescription";
 
-interface IconProps
-  extends Pick<
-    ImgHTMLAttributes<HTMLImageElement>,
-    "width" | "height" | "src" | "alt" | "title"
-  > {}
+import { IconProps } from "./interfaces";
 
 const Icon = memo(function Icon(props: IconProps) {
   const { title, alt, ...otherProps } = props;

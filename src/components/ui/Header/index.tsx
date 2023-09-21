@@ -10,10 +10,7 @@ import { NAV_MENU_ITEMS } from "@/constants/navMenuItems";
 import useBooleanToggle from "@/hooks/useBooleanToggle";
 
 import styles from "./Header.module.css";
-
-interface HeaderProps {
-  onThemeChange?: () => void;
-}
+import { HeaderProps } from "./interfaces";
 
 const Header = memo(function Header({ onThemeChange }: HeaderProps) {
   const [isOpen, toggleIsOpen] = useBooleanToggle();

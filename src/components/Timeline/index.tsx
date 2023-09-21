@@ -10,18 +10,9 @@ import { CURRENCY_OPTIONS } from "@/constants/currencyOptions";
 import { DEFAULT_RATE_ASSET_ID } from "@/constants/defaultRateAssetID";
 import { getRatesHistory } from "@/features/coinapi/getRatesHistory";
 import { rangeNumberObservable } from "@/lib/observable";
-import { RateHistory } from "@/types/coinapi";
 
+import { TimelineProps, TimelineState } from "./interfaces";
 import styles from "./Timeline.module.css";
-
-interface TimelineProps {}
-
-interface TimelineState {
-  isToastOpen: boolean;
-  selectedDays: number;
-  selectedCurrencyId: string | undefined;
-  currentHistoryRate: RateHistory[] | undefined;
-}
 
 const DEFAULT_DAYS_NUMBER = 14;
 

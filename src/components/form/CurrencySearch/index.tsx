@@ -6,7 +6,7 @@ import CurrencySearchDropdown from "@/components/ui/CurrencySearchDropdown";
 import styles from "./CurrencySearch.module.css";
 import { CurrencySearchProps, CurrencySearchState } from "./interfaces";
 
-class CurrencySearch extends React.Component<
+class CurrencySearch extends React.PureComponent<
   CurrencySearchProps,
   CurrencySearchState
 > {

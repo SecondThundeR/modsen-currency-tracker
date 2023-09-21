@@ -3,7 +3,7 @@ import { Popup } from "react-map-gl";
 
 import { BankPopupProps } from "./interfaces";
 
-class BankPopup extends React.Component<BankPopupProps> {
+class BankPopup extends React.PureComponent<BankPopupProps> {
   render() {
     const { bankDetails, resetPopupInfo } = this.props;
     const { properties, availableCurrencies } = bankDetails;

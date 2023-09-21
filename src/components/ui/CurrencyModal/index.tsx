@@ -44,8 +44,10 @@ const CurrencyModal = memo(function CurrencyModal({
     [],
   );
 
-  const stopModalPropagation = (event: MouseEvent<HTMLDivElement>) =>
-    event.stopPropagation();
+  const stopModalPropagation = useCallback(
+    (event: MouseEvent<HTMLDivElement>) => event.stopPropagation(),
+    [],
+  );
 
   if (selectedId === null || currencyData === undefined) return null;
 

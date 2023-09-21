@@ -1,4 +1,4 @@
-import React, { FormEventHandler } from "react";
+import React, { FormEventHandler, memo, useCallback } from "react";
 
 import FormWrapper from "@/components/form/FormWrapper";
 import Input from "@/components/form/Input";
@@ -9,24 +9,27 @@ import useMailSend from "@/hooks/useMailSend";
 
 import styles from "./Contact.module.css";
 
-function Contact() {
+const Contact = memo(function Contact() {
   const { isSent, isSending, isError, onSend } = useMailSend();
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault();
+  const onSubmit: FormEventHandler<HTMLFormElement> = useCallback(
+    (event) => {
+      event.preventDefault();
 
-    const formData = new FormData(event.currentTarget);
-    const email = formData.get("email");
-    const subject = formData.get("subject");
-    const text = formData.get("text");
-    if (!email || !subject || !text) return;
+      const formData = new FormData(event.currentTarget);
+      const email = formData.get("email");
+      const subject = formData.get("subject");
+      const text = formData.get("text");
+      if (!email || !subject || !text) return;
 
-    onSend({
-      recepient: email.toString(),
-      subject: subject.toString(),
-      text: text.toString(),
-    }).catch(console.error);
-  };
+      onSend({
+        recepient: email.toString(),
+        subject: subject.toString(),
+        text: text.toString(),
+      }).catch(console.error);
+    },
+    [onSend],
+  );
 
   return (
     <div className={styles["Contact"]}>
@@ -64,6 +67,6 @@ function Contact() {
       </FormWrapper>
     </div>
   );
-}
+});
 
 export default Contact;

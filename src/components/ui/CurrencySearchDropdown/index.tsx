@@ -6,7 +6,7 @@ import { filterCurrencyOptions } from "@/utils/filterCurrencyOptions";
 import styles from "./CurrencySearchDropdown.module.css";
 import { CurrencySearchDropdownProps } from "./interfaces";
 
-class CurrencySearchDropdown extends React.Component<CurrencySearchDropdownProps> {
+class CurrencySearchDropdown extends React.PureComponent<CurrencySearchDropdownProps> {
   render() {
     const { value, setSelectedCurrency } = this.props;
 

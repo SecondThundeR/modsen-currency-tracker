@@ -5,7 +5,7 @@ import Icon from "@/components/ui/Icon";
 import { TimelineCurrencyInfoProps } from "./interfaces";
 import styles from "./TimelineCurrencyInfo.module.css";
 
-class TimelineCurrencyInfo extends React.Component<TimelineCurrencyInfoProps> {
+class TimelineCurrencyInfo extends React.PureComponent<TimelineCurrencyInfoProps> {
   render() {
     const { id, name, iconSrc } = this.props;
     return (

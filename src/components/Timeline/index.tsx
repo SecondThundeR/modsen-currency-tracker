@@ -16,7 +16,7 @@ import styles from "./Timeline.module.css";
 
 const DEFAULT_DAYS_NUMBER = 14;
 
-class Timeline extends React.Component<TimelineProps, TimelineState> {
+class Timeline extends React.PureComponent<TimelineProps, TimelineState> {
   constructor(props: TimelineProps) {
     super(props);
     this.state = {

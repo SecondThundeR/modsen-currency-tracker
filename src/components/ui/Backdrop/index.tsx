@@ -1,13 +1,10 @@
-import React, { memo } from "react";
+import React from "react";
 import { createPortal } from "react-dom";
 
 import styles from "./Backdrop.module.css";
 import { BackdropProps } from "./interfaces";
 
-const Backdrop = memo(function Backdrop({
-  children,
-  closeModal,
-}: BackdropProps) {
+function Backdrop({ children, closeModal }: BackdropProps) {
   return createPortal(
     <div
       data-cy="backdrop"
@@ -19,6 +16,6 @@ const Backdrop = memo(function Backdrop({
     </div>,
     document.getElementById("portal")!,
   );
-});
+}
 
 export default Backdrop;

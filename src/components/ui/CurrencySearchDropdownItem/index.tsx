@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./CurrencySearchDropdownItem.module.css";
 import { CurrencySearchDropdownItemProps } from "./interfaces";
 
-class CurrencySearchDropdownItem extends React.Component<CurrencySearchDropdownItemProps> {
+class CurrencySearchDropdownItem extends React.PureComponent<CurrencySearchDropdownItemProps> {
   render() {
     const { setSelectedCurrency, ...item } = this.props;
     const { id, name } = item;

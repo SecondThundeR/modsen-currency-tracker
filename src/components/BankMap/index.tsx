@@ -14,7 +14,7 @@ import { extractRandomBanks } from "@/utils/extractRandomBanks";
 import styles from "./BankMap.module.css";
 import { BankMapProps, BankMapState, SelectedCurrency } from "./interfaces";
 
-class BankMap extends React.Component<BankMapProps, BankMapState> {
+class BankMap extends React.PureComponent<BankMapProps, BankMapState> {
   state: BankMapState = {
     selectedCurrency: undefined,
     banksData: undefined,

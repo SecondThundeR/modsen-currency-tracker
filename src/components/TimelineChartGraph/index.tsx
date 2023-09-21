@@ -11,7 +11,7 @@ import { extractChartData } from "@/utils/extractChartData";
 import { TimelineChartGraphProps } from "./interfaces";
 import styles from "./TimelineChartGraph.module.css";
 
-class TimelineChartGraph extends React.Component<TimelineChartGraphProps> {
+class TimelineChartGraph extends React.PureComponent<TimelineChartGraphProps> {
   constructor(props: TimelineChartGraphProps) {
     super(props);
   }

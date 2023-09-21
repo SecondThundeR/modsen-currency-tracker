@@ -8,7 +8,7 @@ import {
 
 import { PinProps } from "./interfaces";
 
-class Pin extends React.Component<PinProps> {
+class Pin extends React.PureComponent<PinProps> {
   render() {
     const { size } = this.props;
     return (

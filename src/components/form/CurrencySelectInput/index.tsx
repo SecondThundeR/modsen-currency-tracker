@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./CurrencySelectInput.module.css";
 import { CurrencySelectInputProps } from "./interfaces";
 
-class CurrencySelectInput extends React.Component<CurrencySelectInputProps> {
+class CurrencySelectInput extends React.PureComponent<CurrencySelectInputProps> {
   render() {
     const { value, onChange, options, optionsHeaderText } = this.props;
     return (

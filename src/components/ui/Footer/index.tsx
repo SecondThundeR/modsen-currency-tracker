@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import diagramLogo from "@/assets/diagramLogo.png";
 import Icon from "@/components/ui/Icon";
@@ -6,7 +6,7 @@ import { FOOTER_LINKS } from "@/constants/footerLinks";
 
 import styles from "./Footer.module.css";
 
-function Footer() {
+const Footer = memo(function Footer() {
   return (
     <footer className={styles["Footer"]}>
       <div className={styles["ContentGrid"]}>
@@ -46,6 +46,6 @@ function Footer() {
       </p>
     </footer>
   );
-}
+});
 
 export default Footer;

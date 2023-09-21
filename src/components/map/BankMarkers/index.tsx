@@ -5,7 +5,7 @@ import Pin from "@/components/ui/Pin";
 
 import { BankMarkersProps } from "./interfaces";
 
-class BankMarkers extends React.Component<BankMarkersProps> {
+class BankMarkers extends React.PureComponent<BankMarkersProps> {
   render() {
     const { banksData, setPopupInfo } = this.props;
     const { features } = banksData;

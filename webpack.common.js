@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 const { DefinePlugin } = require("webpack");
 const dotenv = require("dotenv");
+const CompressionPlugin = require("compression-webpack-plugin");
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ module.exports = {
     new DefinePlugin({
       "process.env": JSON.stringify(process.env),
     }),
+    new CompressionPlugin(),
   ],
   resolve: {
     modules: [__dirname, "src", "node_modules"],

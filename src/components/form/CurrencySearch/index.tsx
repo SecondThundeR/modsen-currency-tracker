@@ -1,21 +1,12 @@
 import React, { ChangeEventHandler, FocusEventHandler } from "react";
 
-import { SelectedCurrency } from "@/components/BankMap";
 import Input from "@/components/form/Input";
 import CurrencySearchDropdown from "@/components/ui/CurrencySearchDropdown";
 
 import styles from "./CurrencySearch.module.css";
+import { CurrencySearchProps, CurrencySearchState } from "./interfaces";
 
-interface CurrencySearchProps {
-  setSelectedCurrency: (currency: SelectedCurrency) => void;
-}
-
-interface CurrencySearchState {
-  value: string;
-  isFocused: boolean;
-}
-
-class CurrencySearch extends React.Component<
+class CurrencySearch extends React.PureComponent<
   CurrencySearchProps,
   CurrencySearchState
 > {

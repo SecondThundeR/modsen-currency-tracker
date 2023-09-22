@@ -1,17 +1,12 @@
 import React from "react";
 
-import { SelectedCurrency } from "@/components/BankMap";
 import CurrencySearchDropdownItem from "@/components/ui/CurrencySearchDropdownItem";
 import { filterCurrencyOptions } from "@/utils/filterCurrencyOptions";
 
 import styles from "./CurrencySearchDropdown.module.css";
+import { CurrencySearchDropdownProps } from "./interfaces";
 
-interface CurrencySearchDropdownProps {
-  value: string;
-  setSelectedCurrency: (currency: SelectedCurrency) => void;
-}
-
-class CurrencySearchDropdown extends React.Component<CurrencySearchDropdownProps> {
+class CurrencySearchDropdown extends React.PureComponent<CurrencySearchDropdownProps> {
   render() {
     const { value, setSelectedCurrency } = this.props;
 

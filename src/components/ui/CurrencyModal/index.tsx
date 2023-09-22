@@ -1,4 +1,10 @@
-import React, { ChangeEvent, memo, useCallback, useState } from "react";
+import React, {
+  ChangeEvent,
+  memo,
+  MouseEvent,
+  useCallback,
+  useState,
+} from "react";
 
 import Input from "@/components/form/Input";
 import SelectInput from "@/components/form/SelectInput";
@@ -8,11 +14,7 @@ import { CURRENCY_OPTIONS } from "@/constants/currencyOptions";
 import useConversionRate from "@/hooks/useConversionRate";
 
 import styles from "./CurrencyModal.module.css";
-
-interface CurrencyModalProps {
-  selectedId: string | null;
-  closeModal: () => void;
-}
+import { CurrencyModalProps } from "./interfaces";
 
 const CurrencyModal = memo(function CurrencyModal({
   selectedId,
@@ -42,6 +44,11 @@ const CurrencyModal = memo(function CurrencyModal({
     [],
   );
 
+  const stopModalPropagation = useCallback(
+    (event: MouseEvent<HTMLDivElement>) => event.stopPropagation(),
+    [],
+  );
+
   if (selectedId === null || currencyData === undefined) return null;
 
   const { name, iconSrc } = currencyData;
@@ -52,10 +59,10 @@ const CurrencyModal = memo(function CurrencyModal({
         data-cy="currency-modal"
         data-testid="currency-modal"
         className={styles["CurrencyModal"]}
-        onClick={(event) => event.stopPropagation()}
+        onClick={stopModalPropagation}
       >
         <div className={styles["CurrencyModal__CurrencyInfo"]}>
-          <Icon width={64} height={64} iconSrc={iconSrc} />
+          <Icon width={64} height={64} src={iconSrc} title={name} alt={name} />
           <div className={styles["CurrencyModal__CurrencyInfoDetails"]}>
             <p>Selected currency</p>
             <h1>{name}</h1>
@@ -67,7 +74,7 @@ const CurrencyModal = memo(function CurrencyModal({
           {isError && (
             <p>There is an error while trying to get rate. We are sorry...</p>
           )}
-          {conversionOptions && (
+          {!isLoading && !isError && conversionOptions && (
             <>
               <p>Target currency:</p>
               <SelectInput

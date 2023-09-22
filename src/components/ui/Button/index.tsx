@@ -1,15 +1,9 @@
-import React, { ButtonHTMLAttributes, memo, PropsWithChildren } from "react";
+import React from "react";
 
 import styles from "./Button.module.css";
+import { ButtonProps } from "./interfaces";
 
-interface ButtonProps
-  extends PropsWithChildren,
-    Pick<
-      ButtonHTMLAttributes<HTMLButtonElement>,
-      "className" | "onClick" | "type" | "disabled"
-    > {}
-
-const Button = memo(function Button({
+function Button({
   children,
   className,
   type = "button",
@@ -26,6 +20,6 @@ const Button = memo(function Button({
       {children}
     </button>
   );
-});
+}
 
 export default Button;

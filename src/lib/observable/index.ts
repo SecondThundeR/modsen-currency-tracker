@@ -1,10 +1,4 @@
-type Observer<T> = (data: T) => void;
-
-interface ObservableType<T> {
-  subscribe(observer: Observer<T>): void;
-  unsubscribe(observer: Observer<T>): void;
-  notify(data: unknown): void;
-}
+import { ObservableType, Observer } from "./interfaces";
 
 export class Observable<T> implements ObservableType<T> {
   constructor(private observers: Observer<T>[] = []) {}

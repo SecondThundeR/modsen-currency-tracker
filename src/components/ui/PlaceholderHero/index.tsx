@@ -1,10 +1,7 @@
 import React, { memo } from "react";
 
+import { PlaceholderHeroProps } from "./interfaces";
 import styles from "./PlaceholderHero.module.css";
-
-interface PlaceholderHeroProps {
-  text: string;
-}
 
 const PlaceholderHero = memo(function PlaceholderHero({
   text,

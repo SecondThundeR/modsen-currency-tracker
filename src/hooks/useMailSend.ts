@@ -1,9 +1,7 @@
 import { useCallback, useState } from "react";
 
-import {
-  sendContactMail,
-  SendMailOptions,
-} from "@/features/mail/sendContactMail";
+import { SendMailOptions } from "@/features/mail/interfaces";
+import { sendContactMail } from "@/features/mail/sendContactMail";
 
 function useMailSend() {
   const [isSent, setIsSent] = useState(false);

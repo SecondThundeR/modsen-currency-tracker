@@ -1,7 +1,10 @@
 .Header {
   display: flex;
   align-items: center;
+  position: sticky;
+  top: 0;
   padding: 18px 64px;
+  background-color: var(--background-primary);
 }
 
 .Header__Burger {

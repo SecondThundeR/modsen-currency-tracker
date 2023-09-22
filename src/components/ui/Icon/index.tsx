@@ -1,13 +1,15 @@
 import React, { memo } from "react";
 
-interface IconProps {
-  width: number;
-  height: number;
-  iconSrc: string;
-}
+import { getIconDescription } from "@/utils/getIconDescription";
 
-const Icon = memo(function Icon({ width, height, iconSrc }: IconProps) {
-  return <img width={width} height={height} src={iconSrc} />;
+import { IconProps } from "./interfaces";
+
+const Icon = memo(function Icon(props: IconProps) {
+  const { title, alt, ...otherProps } = props;
+  const titleText = getIconDescription(title);
+  const altText = getIconDescription(alt);
+
+  return <img title={titleText} alt={altText} {...otherProps} />;
 });
 
 export default Icon;

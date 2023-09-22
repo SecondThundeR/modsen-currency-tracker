@@ -1,16 +1,7 @@
 import React, { memo } from "react";
 import { Link } from "react-router-dom";
 
-interface NavMenuItem {
-  name: string;
-  to: string;
-}
-
-interface NavMenuProps {
-  menu: NavMenuItem[];
-  navClass?: string;
-  linkClass?: string;
-}
+import { NavMenuProps } from "./interfaces";
 
 const NavMenu = memo(function NavMenu({
   menu,

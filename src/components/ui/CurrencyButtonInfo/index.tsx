@@ -1,17 +1,14 @@
 import React, { memo } from "react";
 
-import { CurrencyType } from "@/types/currency";
-
 import styles from "./CurrencyButtonInfo.module.css";
-
-interface CurrencyButtonInfo extends Omit<CurrencyType, "id" | "iconSrc"> {}
+import { CurrencyButtonInfoProps } from "./interfaces";
 
 const CurrencyButtonInfo = memo(function CurrencyButtonInfo({
   name,
   details,
   rate,
   rate_base,
-}: CurrencyButtonInfo) {
+}: CurrencyButtonInfoProps) {
   return (
     <div className={styles["CurrencyButtonInfo"]}>
       <h1>{name}</h1>

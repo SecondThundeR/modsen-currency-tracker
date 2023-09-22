@@ -1,10 +1,7 @@
 import React, { memo } from "react";
 
+import { LastUpdatedProps } from "./interfaces";
 import styles from "./LastUpdated.module.css";
-
-interface LastUpdatedProps {
-  updateTime: string;
-}
 
 const LastUpdated = memo(function LastUpdated({
   updateTime,

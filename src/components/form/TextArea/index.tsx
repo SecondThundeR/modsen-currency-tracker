@@ -1,14 +1,7 @@
-import React, { memo, TextareaHTMLAttributes } from "react";
+import React, { memo } from "react";
 
+import { TextAreaProps } from "./interfaces";
 import styles from "./TextArea.module.css";
-
-interface TextAreaProps
-  extends Pick<
-    TextareaHTMLAttributes<HTMLTextAreaElement>,
-    "value" | "onChange" | "required" | "name" | "id"
-  > {
-  label?: string;
-}
 
 const TextArea = memo(function TextArea({ label, ...props }: TextAreaProps) {
   return (

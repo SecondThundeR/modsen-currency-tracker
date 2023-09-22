@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { memo, useMemo } from "react";
 
 import CurrencyGrid from "@/components/ui/CurrencyGrid";
 import CurrencyModal from "@/components/ui/CurrencyModal";
@@ -12,7 +12,7 @@ import { mergeOptionsWithRates } from "@/utils/mergeOptionsWithRates";
 
 import styles from "./Home.module.css";
 
-function Home() {
+const Home = memo(function Home() {
   const {
     isOpen,
     selectedId,
@@ -33,6 +33,7 @@ function Home() {
       <CurrencyGrid
         sectionTitle="Stocks"
         sectionInfo={PLACEHOLDER_STOCKS_DATA}
+        onSectionClick={() => {}}
       />
       <CurrencyGrid
         sectionTitle="Quotes"
@@ -42,6 +43,6 @@ function Home() {
       {isOpen && <CurrencyModal selectedId={selectedId} closeModal={onClose} />}
     </div>
   );
-}
+});
 
 export default Home;

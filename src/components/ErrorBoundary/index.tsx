@@ -1,13 +1,7 @@
-import React, { Component, ErrorInfo, PropsWithChildren } from "react";
+import React, { Component, ErrorInfo } from "react";
 
 import styles from "./ErrorBoundary.module.css";
-
-interface ErrorBoundaryProps extends PropsWithChildren {}
-
-interface ErrorBoundaryState {
-  errorDetails: string | undefined;
-  hasError: boolean;
-}
+import { ErrorBoundaryProps, ErrorBoundaryState } from "./interfaces";
 
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   public state: ErrorBoundaryState = {

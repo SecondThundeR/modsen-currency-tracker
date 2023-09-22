@@ -1,18 +1,10 @@
-import React, { memo } from "react";
+import React from "react";
 import { createPortal } from "react-dom";
 
-import useCurrencyModal from "@/hooks/useCurrencyModal";
-
 import styles from "./Backdrop.module.css";
+import { BackdropProps } from "./interfaces";
 
-interface BackdropProps extends React.PropsWithChildren {
-  closeModal: ReturnType<typeof useCurrencyModal>["handlers"]["onClose"];
-}
-
-const Backdrop = memo(function Backdrop({
-  children,
-  closeModal,
-}: BackdropProps) {
+function Backdrop({ children, closeModal }: BackdropProps) {
   return createPortal(
     <div
       data-cy="backdrop"
@@ -24,6 +16,6 @@ const Backdrop = memo(function Backdrop({
     </div>,
     document.getElementById("portal")!,
   );
-});
+}
 
 export default Backdrop;

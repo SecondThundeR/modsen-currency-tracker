@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 
@@ -9,7 +9,7 @@ import LastUpdated from "@/components/ui/LastUpdated";
 import useThemeChange from "@/hooks/useThemeChange";
 import { RootState } from "@/store";
 
-function Root() {
+const Root = memo(function Root() {
   const lastUpdatedAt = useSelector(
     (state: RootState) => state.currency.lastUpdatedAt,
   );
@@ -24,6 +24,6 @@ function Root() {
       <Footer />
     </>
   );
-}
+});
 
 export default Root;

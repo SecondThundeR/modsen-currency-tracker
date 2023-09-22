@@ -1,9 +1,8 @@
-import React, { memo, PropsWithChildren } from "react";
-import { Link, LinkProps } from "react-router-dom";
+import React, { memo } from "react";
+import { Link } from "react-router-dom";
 
+import { LinkButtonProps } from "./interfaces";
 import styles from "./LinkButton.module.css";
-
-interface LinkButtonProps extends PropsWithChildren, Pick<LinkProps, "to"> {}
 
 const LinkButton = memo(function LinkButton({ children, to }: LinkButtonProps) {
   return (

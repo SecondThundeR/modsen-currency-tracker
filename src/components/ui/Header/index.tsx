@@ -10,10 +10,7 @@ import { NAV_MENU_ITEMS } from "@/constants/navMenuItems";
 import useBooleanToggle from "@/hooks/useBooleanToggle";
 
 import styles from "./Header.module.css";
-
-interface HeaderProps {
-  onThemeChange?: () => void;
-}
+import { HeaderProps } from "./interfaces";
 
 const Header = memo(function Header({ onThemeChange }: HeaderProps) {
   const [isOpen, toggleIsOpen] = useBooleanToggle();
@@ -21,7 +18,13 @@ const Header = memo(function Header({ onThemeChange }: HeaderProps) {
   return (
     <header data-cy="header" data-testid="header" className={styles["Header"]}>
       <div className={styles["Header__Burger"]}>
-        <Icon width={36} height={36} iconSrc={diagramLogo} />
+        <Icon
+          width={36}
+          height={36}
+          src={diagramLogo}
+          title="Company Logo"
+          alt="Company Logo"
+        />
         <div className={styles["Header__BurgerWrapper"]}>
           <Hamburger isOpen={isOpen} toggleOpen={toggleIsOpen} />
         </div>

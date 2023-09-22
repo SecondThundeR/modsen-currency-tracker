@@ -1,16 +1,9 @@
-import React, { SelectHTMLAttributes } from "react";
-
-import { CurrencyType } from "@/types/currency";
+import React from "react";
 
 import styles from "./CurrencySelectInput.module.css";
+import { CurrencySelectInputProps } from "./interfaces";
 
-interface CurrencySelectInputProps
-  extends Pick<SelectHTMLAttributes<HTMLSelectElement>, "value" | "onChange"> {
-  options: Pick<CurrencyType, "id" | "name">[];
-  optionsHeaderText: string;
-}
-
-class CurrencySelectInput extends React.Component<CurrencySelectInputProps> {
+class CurrencySelectInput extends React.PureComponent<CurrencySelectInputProps> {
   render() {
     const { value, onChange, options, optionsHeaderText } = this.props;
     return (

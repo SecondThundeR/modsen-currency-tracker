@@ -1,12 +1,7 @@
-import React, { memo, SelectHTMLAttributes } from "react";
+import React, { memo } from "react";
 
+import { SelectInputProps } from "./interfaces";
 import styles from "./SelectInput.module.css";
-
-interface SelectInputProps
-  extends Pick<SelectHTMLAttributes<HTMLSelectElement>, "value" | "onChange"> {
-  options: string[];
-  optionsHeaderText: string;
-}
 
 const SelectInput = memo(function SelectInput({
   options,

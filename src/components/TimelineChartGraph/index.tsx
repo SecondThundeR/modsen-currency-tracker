@@ -4,32 +4,14 @@ import dayjs from "dayjs";
 import Chart from "react-apexcharts";
 import { connect } from "react-redux";
 
+import { COLORS } from "@/constants/colors";
 import { RootState } from "@/store";
-import { ThemeState } from "@/store/theme";
-import { RateHistory } from "@/types/coinapi";
 import { extractChartData } from "@/utils/extractChartData";
 
+import { TimelineChartGraphProps } from "./interfaces";
 import styles from "./TimelineChartGraph.module.css";
 
-const CHART_COLORS = {
-  light: {
-    background: "#fff",
-    theme: "light",
-    borderColor: "#e5e5e5",
-  },
-  dark: {
-    background: "#000",
-    theme: "dark",
-    borderColor: "#1c1c1d",
-  },
-} as const;
-
-interface TimelineChartGraphProps extends ThemeState {
-  data: RateHistory[];
-  limit: number;
-}
-
-class TimelineChartGraph extends React.Component<TimelineChartGraphProps> {
+class TimelineChartGraph extends React.PureComponent<TimelineChartGraphProps> {
   constructor(props: TimelineChartGraphProps) {
     super(props);
   }
@@ -52,10 +34,10 @@ class TimelineChartGraph extends React.Component<TimelineChartGraphProps> {
       },
     ] satisfies ApexAxisChartSeries;
 
-    const currentChartColors = CHART_COLORS[currentTheme];
+    const currentChartColors = COLORS[currentTheme];
     const chartOptions = {
       chart: {
-        background: currentChartColors.background,
+        background: currentChartColors.backgroundColor,
         type: "candlestick",
         toolbar: {
           show: false,
@@ -65,7 +47,7 @@ class TimelineChartGraph extends React.Component<TimelineChartGraphProps> {
         },
       },
       theme: {
-        mode: currentChartColors.theme,
+        mode: currentChartColors.themeName,
       },
       tooltip: {
         enabled: true,
